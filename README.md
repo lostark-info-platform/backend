@@ -9,6 +9,8 @@
 - Kotlin, Springboot3, Kotest, Mockk
 ### 인프라
 - Mysql8, Redis, Flyway, Docker, Github Actions, Aws
+### 문서화
+- Spring Rest Docs
 ## 프로젝트 진행시 관심사
 - 모든 작업은 issue task를 통해 진행하며 협업에 집중합니다.
 - 브랜치 커버리지를 80% 이상으로 유지합니다.(추후 100%도전)
