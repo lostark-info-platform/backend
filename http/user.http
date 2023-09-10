@@ -1,0 +1,49 @@
+### 회원가입
+POST http://localhost:8080/api/users/register
+Content-Type: application/json
+
+{
+  "name": "홍길동",
+  "email": "gildong@test.com",
+  "password": "password",
+  "confirmPassword": "password"
+}
+
+### 로그인
+POST http://localhost:8080/api/users/login
+Content-Type: application/json
+
+{
+  "email": "gildong@test.com",
+  "password": "password"
+}
+
+> {%
+  client.global.set("auth_token", response.body.data.token);
+  client.global.set("refresh_token", response.body.data.refreshToken);
+%}
+
+
+### 내 정보
+GET http://localhost:8080/api/users/me
+Authorization: Bearer {{auth_token}}
+
+### 로그아웃 (리프레시토큰삭제)
+POST http://localhost:8080/api/users/logout
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+{
+  "refreshToken": "{{refresh_token}}"
+}
+
+### 회원탈퇴 (리프레시토큰 전체삭제)
+POST http://localhost:8080/api/users/resign
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+{
+  "password": "password"
+}
+
+###
