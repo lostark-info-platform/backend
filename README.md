@@ -5,12 +5,8 @@
 깃허브에서 제공하는 issue, project, actions 기능을 적극 이용하였으며 해당 레포지토리의 issue 페이지와 organization의 project 페이지에서 내용 확인이 가능합니다.
 
 ## 사용기술
-### 애플리케이션
-- Kotlin, Springboot3, Kotest, Mockk
-### 인프라
-- Mysql8, Redis, Flyway, Docker, Github Actions, Aws
-### 문서화
-- Spring Rest Docs
+![tech-stack](./doc/tech-stack.001.jpeg)
+
 ## 프로젝트 진행시 관심사
 - 모든 작업은 issue task를 통해 진행하며 협업에 집중합니다.
 - 브랜치 커버리지를 80% 이상으로 유지합니다.(추후 100%도전)
