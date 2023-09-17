@@ -1,0 +1,14 @@
+version: "3.3"
+services:
+  blue:
+    image: duhanmo/sample-repository:latest
+    container_name: blue
+    restart: always
+    ports:
+      - "8080:8080"
+  green:
+    image: duhanmo/sample-repository:latest
+    container_name: green
+    restart: always
+    ports:
+      - "8081:8080"
