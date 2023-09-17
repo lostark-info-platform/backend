@@ -1,13 +1,13 @@
 version: "3.3"
 services:
   blue:
-    image: duhanmo/sample-repository:latest
+    image: duhanmo/lostark-info-api:latest
     container_name: blue
     restart: always
     ports:
       - "8080:8080"
   green:
-    image: duhanmo/sample-repository:latest
+    image: duhanmo/lostark-info-api:latest
     container_name: green
     restart: always
     ports:
