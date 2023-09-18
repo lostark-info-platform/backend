@@ -54,7 +54,7 @@ jobs:
         tags: duhanmo/lostark-info-api:latest
     -
       name: Create secret to file into runner server
-      run: echo ${{ secrets.APPLICATION_PRODUCT_PROPERTIES }} > ./application-product.properties
+      run: echo "${{ secrets.APPLICATION_PRODUCT_PROPERTIES }}" > ./application-product.properties
 
     -
       name: Send properties file
