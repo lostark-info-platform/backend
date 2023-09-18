@@ -8,16 +8,19 @@
 ![tech-stack](./doc/tech-stack.001.jpeg)
 
 ## 프로젝트 진행시 관심사
+- 배포과정에 DownTime이 없게 합니다.
 - 모든 작업은 issue task를 통해 진행하며 협업에 집중합니다.
 - 브랜치 커버리지를 80% 이상으로 유지합니다.(추후 100%도전)
 - 한 메서드의 라인수가 15줄을 넘기지 않습니다.
 - else문을 지양합니다.
 - 지속적으로 리팩터링 합니다.
 
+## Infra Structure
+![인프라스트럭쳐](./doc/infra-structure.001.jpeg)
+
 ## CI/CD
-Github Actions를 통해 pr이 올라오면 통합테스트를 진행합니다.<br>
-이 때 Jacoco를 통해 커버리지에 의한 빌드 성공/실패를 결정합니다.<br>
-빌드가 성공한다면 Github Actions를 통해 빌드된 결과물을 서버에 배포합니다.(중단배포로 먼저 설정, 이 후 nginx를 통한 무중단 배포 설정)
+[문서 바로가기](doc/ci-cd.md)
+
 
 ## 시작하기
 ```shell
