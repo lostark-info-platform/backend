@@ -6,9 +6,13 @@ services:
     restart: always
     ports:
       - "8080:8080"
+    volumes:
+      - /home/ec2-user/secret:/root/app/secret
   green:
     image: duhanmo/lostark-info-api:latest
     container_name: green
     restart: always
     ports:
       - "8081:8080"
+    volumes:
+      - /home/ec2-user/secret:/root/app/secret

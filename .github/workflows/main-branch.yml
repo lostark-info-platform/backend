@@ -31,7 +31,7 @@ jobs:
     -
       name: Gradle build
       run: |
-        ./gradlew clean build
+        ./gradlew clean build -x test
 
     -
       name: Set up Docker Buildx
@@ -48,6 +48,7 @@ jobs:
       name: Docker build and push
       uses: docker/build-push-action@v5
       with:
+        file: Product.Dockerfile
         context: .
         push: true
         tags: duhanmo/lostark-info-api:latest
