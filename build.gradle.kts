@@ -8,6 +8,12 @@ plugins {
     kotlin("plugin.jpa") version "1.8.22"
 }
 
+allOpen {
+    annotation("jakarta.persistence.Entity")
+    annotation("jakarta.persistence.MappedSuperclass")
+    annotation("jakarta.persistence.Embeddable")
+}
+
 group = "org.info"
 version = "0.0.1-SNAPSHOT"
 
@@ -20,6 +26,7 @@ repositories {
 }
 
 val jjwtVersion = "0.11.5"
+val kotestVersion = "5.6.2"
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
@@ -35,6 +42,9 @@ dependencies {
     runtimeOnly("com.h2database:h2")
     runtimeOnly("com.mysql:mysql-connector-j")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
+    // kotest
+    testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
+    testImplementation("io.kotest.extensions:kotest-extensions-spring:1.1.3")
 }
 
 tasks.withType<KotlinCompile> {
