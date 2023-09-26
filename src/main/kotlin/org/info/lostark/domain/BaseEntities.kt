@@ -36,7 +36,7 @@ abstract class BaseRootEntity<T : AbstractAggregateRoot<T>>(
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
 
-        other as BaseEntity
+        other as BaseRootEntity<*>
 
         return id == other.id
     }
