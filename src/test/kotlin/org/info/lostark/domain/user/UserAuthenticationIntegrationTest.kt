@@ -81,6 +81,16 @@ class UserAuthenticationIntegrationTest(
                 }
             }
         }
+
+        When("올바르지 않은 비밀번호로 로그인 하면") {
+            Then("에러 발생한다") {
+                shouldThrow<UnidentifiedUserException> {
+                    userAuthenticationService.generateTokenByLogin(
+                        AuthenticateUserRequest(user.email, Password("anotherPassword"))
+                    )
+                }
+            }
+        }
     }
 
     Given("리프레쉬토큰이 존재하는 경우") {
