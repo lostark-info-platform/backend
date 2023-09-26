@@ -3,7 +3,7 @@ package org.info.lostark.domain.user
 import io.kotest.core.spec.style.ExpectSpec
 import io.kotest.extensions.spring.SpringTestExtension
 import io.kotest.extensions.spring.SpringTestLifecycleMode
-import io.kotest.matchers.collections.shouldHaveSize
+import io.kotest.matchers.nulls.shouldNotBeNull
 import org.info.lostark.fixture.createUser
 import org.info.lostark.support.RepositoryTest
 
@@ -20,9 +20,9 @@ class UserRepositoryTest(
                 createUser("이순신", "sunsin@email.com")
             )
         )
-        expect("모든 유저를 조회한다") {
-            val actual = userRepository.findAll()
-            actual shouldHaveSize 2
+        expect("이메일을 통해 유저를 조회한다") {
+            val actual = userRepository.findByEmail("gildong@email.com")
+            actual.shouldNotBeNull()
         }
     }
 })
