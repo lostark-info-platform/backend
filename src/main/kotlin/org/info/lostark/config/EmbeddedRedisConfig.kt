@@ -59,6 +59,7 @@ class EmbeddedRedisConfig(
                 }
             }
         } catch (e: Exception) {
+            throw e
         }
         return pidInfo.toString().isNotEmpty()
     }
