@@ -45,6 +45,8 @@ dependencies {
     // kotest
     testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion")
     testImplementation("io.kotest.extensions:kotest-extensions-spring:1.1.3")
+    // https://mvnrepository.com/artifact/it.ozimov/embedded-redis
+    implementation("it.ozimov:embedded-redis:0.7.2")
 }
 
 tasks.withType<KotlinCompile> {
