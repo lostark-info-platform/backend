@@ -47,6 +47,8 @@ dependencies {
     testImplementation("io.kotest.extensions:kotest-extensions-spring:1.1.3")
     // https://mvnrepository.com/artifact/it.ozimov/embedded-redis
     implementation("it.ozimov:embedded-redis:0.7.2")
+    // mockkBean with mockk
+    testImplementation("com.ninja-squad:springmockk:4.0.2")
 }
 
 tasks.withType<KotlinCompile> {

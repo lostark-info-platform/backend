@@ -9,8 +9,8 @@ import org.springframework.data.redis.core.RedisHash
 @RedisHash(value = "refresh-token-by-user")
 data class RefreshTokenByUser(
     @Id
-    val id: Long,
-    val tokens: MutableList<String> = mutableListOf()
+    val id: Long, // userId
+    val tokens: MutableList<String> = mutableListOf() // refreshToken id list
 )
 
 
