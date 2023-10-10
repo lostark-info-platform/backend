@@ -1,11 +1,9 @@
 package org.info.lostark
 
+import org.info.lostark.support.IntegrationTest
 import org.junit.jupiter.api.Test
-import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.test.context.ActiveProfiles
 
-@ActiveProfiles("test")
-@SpringBootTest
+@IntegrationTest
 class LostarkApplicationTests {
 
     @Test

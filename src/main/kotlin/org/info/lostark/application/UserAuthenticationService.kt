@@ -16,6 +16,9 @@ class UserAuthenticationService(
     private val refreshTokenService: RefreshTokenService
 ) {
     fun generateTokenByRegister(request: RegisterUserRequest): JwtTokenResponse {
+        check(userRepository.findByEmail(request.email) == null) {
+            throw IllegalArgumentException("이미 존재하는 이메일입니다.")
+        }
         val user = userRepository.save(request.toEntity())
         return generate(user)
     }

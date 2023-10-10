@@ -1,10 +1,23 @@
 package org.info.lostark.ui.api
 
-import org.info.lostark.application.*
+import org.info.lostark.application.AuthenticateUserRequest
+import org.info.lostark.application.JwtTokenResponse
+import org.info.lostark.application.LogoutRequest
+import org.info.lostark.application.RefreshTokenService
+import org.info.lostark.application.RegisterUserRequest
+import org.info.lostark.application.ResignRequest
+import org.info.lostark.application.ResignService
+import org.info.lostark.application.TokenRefreshRequest
+import org.info.lostark.application.UserAuthenticationService
+import org.info.lostark.application.UserResponse
 import org.info.lostark.domain.user.User
 import org.info.lostark.security.LoginUser
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.*
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 
 @RequestMapping("/api/users")
 @RestController
@@ -50,7 +63,7 @@ class UserRestController(
     }
 
     @GetMapping("/me")
-    fun me(@LoginUser user: User): ApiResponse<User> {
-        return ApiResponse.success(user)
+    fun me(@LoginUser user: User): ApiResponse<UserResponse> {
+        return ApiResponse.success(UserResponse(user))
     }
 }
