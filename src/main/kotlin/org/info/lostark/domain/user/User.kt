@@ -25,6 +25,9 @@ class User(
         UserInformation(name, email), password, id
     )
 
+    val name: String
+        get() = information.name
+
     val email: String
         get() = information.email
 
