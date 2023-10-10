@@ -30,3 +30,15 @@ data class ResignRequest(
 data class TokenRefreshRequest(
     val refreshToken: String
 )
+
+data class UserResponse(
+    val id: Long,
+    val name: String,
+    val email: String,
+) {
+    constructor(user: User) : this(
+        user.id,
+        user.name,
+        user.email
+    )
+}
