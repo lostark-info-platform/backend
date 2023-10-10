@@ -15,9 +15,11 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.restdocs.AutoConfigureRestDocs
 import org.springframework.core.MethodParameter
 import org.springframework.http.HttpHeaders
+import org.springframework.http.MediaType
 import org.springframework.restdocs.RestDocumentationContextProvider
 import org.springframework.restdocs.RestDocumentationExtension
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation
+import org.springframework.test.web.servlet.MockHttpServletRequestDsl
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.result.ContentResultMatchersDsl
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers
@@ -66,6 +68,11 @@ abstract class RestControllerTest {
                 createUser()
             }
         }
+    }
+
+    fun MockHttpServletRequestDsl.jsonContent(value: Any) {
+        content = objectMapper.writeValueAsString(value)
+        contentType = MediaType.APPLICATION_JSON
     }
 
     fun ContentResultMatchersDsl.success(value: Any) {
