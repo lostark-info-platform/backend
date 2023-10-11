@@ -1,5 +1,6 @@
 package org.info.lostark.ui.api
 
+import jakarta.validation.Valid
 import org.info.lostark.application.AuthenticateUserRequest
 import org.info.lostark.application.JwtTokenResponse
 import org.info.lostark.application.LogoutRequest
@@ -33,7 +34,7 @@ class UserRestController(
     }
 
     @PostMapping("/login")
-    fun generateToken(@RequestBody request: AuthenticateUserRequest): ResponseEntity<ApiResponse<JwtTokenResponse>> {
+    fun generateToken(@RequestBody @Valid request: AuthenticateUserRequest): ResponseEntity<ApiResponse<JwtTokenResponse>> {
         val token = userAuthenticationService.generateTokenByLogin(request)
         return ResponseEntity.ok(ApiResponse.success(token))
     }

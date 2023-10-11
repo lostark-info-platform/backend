@@ -1,10 +1,14 @@
 package org.info.lostark.application
 
+import jakarta.validation.constraints.Email
+import jakarta.validation.constraints.NotBlank
 import org.info.lostark.domain.user.Password
 import org.info.lostark.domain.user.User
 
 data class RegisterUserRequest(
+    @field:NotBlank
     val name: String,
+    @field:Email
     val email: String,
     val password: Password,
     val confirmPassword: Password
@@ -15,6 +19,7 @@ data class RegisterUserRequest(
 }
 
 data class AuthenticateUserRequest(
+    @field:Email
     val email: String,
     val password: Password
 )
