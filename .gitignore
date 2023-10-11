@@ -38,3 +38,6 @@ docker/db/mysql/init/*
 
 ### Product secret ###
 application-product.properties
+
+### Spring REST Docs ###
+**/src/main/resources/static/docs/
