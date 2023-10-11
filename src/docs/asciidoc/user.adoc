@@ -4,9 +4,17 @@
 
 operation::user-register-post[snippets='http-request,http-response']
 
+== 회원 가입 실패 (이미 존재하는 이메일)
+
+operation::user-register-post-already-exist-email[snippets='http-request,http-response']
+
 == 로그인
 
 operation::user-login-post[snippets='http-request,http-response']
+
+== 로그인 실패 (정보 불일치)
+
+operation::user-login-post-forbidden[snippets='http-request,http-response']
 
 == 로그인 실패 (이메일 형식 에러)
 
