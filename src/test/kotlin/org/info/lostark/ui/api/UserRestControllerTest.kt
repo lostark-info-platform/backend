@@ -10,6 +10,7 @@ import org.info.lostark.application.ResignService
 import org.info.lostark.application.UserAuthenticationService
 import org.info.lostark.application.UserResponse
 import org.info.lostark.domain.user.Password
+import org.info.lostark.domain.user.UnidentifiedUserException
 import org.info.lostark.fixture.createUser
 import org.info.lostark.support.bearer
 import org.junit.jupiter.api.Test
@@ -45,6 +46,19 @@ class UserRestControllerTest : RestControllerTest() {
     }
 
     @Test
+    fun `회원가입 요청시 이미 존재하는 이메일일 시 400 BadRequest 응답한다`() {
+        every { userAuthenticationService.generateTokenByRegister(any()) } throws IllegalArgumentException("이미 존재하는 이메일입니다.")
+
+        mockMvc.post("/api/users/register") {
+            jsonContent(RegisterUserRequest("user", "exist@email.com", Password("password"), Password("password")))
+        }.andExpect {
+            status { isBadRequest() }
+        }.andDo {
+            handle(document("user-register-post-already-exist-email"))
+        }
+    }
+
+    @Test
     fun `유효한 로그인 요청시 토큰을 응답한다`() {
         val response = createJwtResponse()
         every { userAuthenticationService.generateTokenByLogin(any()) } returns response
@@ -59,7 +73,6 @@ class UserRestControllerTest : RestControllerTest() {
         }
     }
 
-
     @Test
     fun `로그인 시 이메일형식이 올바르지 않은 경우 에러 발생한다`() {
         val response = createJwtResponse()
@@ -72,6 +85,19 @@ class UserRestControllerTest : RestControllerTest() {
             status { isBadRequest() }
         }.andDo {
             handle(document("user-login-post-invalid-email-form"))
+        }
+    }
+
+    @Test
+    fun `로그인 요청한 정보가 올바르지 않은 경우 403 Forbidden 반환한다`() {
+        every { userAuthenticationService.generateTokenByLogin(any()) } throws UnidentifiedUserException("사용자 정보가 일치하지 않습니다.")
+
+        mockMvc.post("/api/users/login") {
+            jsonContent(AuthenticateUserRequest("unmatched@email.com", Password("password")))
+        }.andExpect {
+            status { isForbidden() }
+        }.andDo {
+            handle(document("user-login-post-forbidden"))
         }
     }
 
