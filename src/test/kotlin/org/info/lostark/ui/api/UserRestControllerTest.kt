@@ -50,12 +50,28 @@ class UserRestControllerTest : RestControllerTest() {
         every { userAuthenticationService.generateTokenByLogin(any()) } returns response
 
         mockMvc.post("/api/users/login") {
-            jsonContent(AuthenticateUserRequest("user", Password("password")))
+            jsonContent(AuthenticateUserRequest("user@email.com", Password("password")))
         }.andExpect {
             status { isOk() }
             content { success(response) }
         }.andDo {
             handle(document("user-login-post"))
+        }
+    }
+
+
+    @Test
+    fun `로그인 시 이메일형식이 올바르지 않은 경우 에러 발생한다`() {
+        val response = createJwtResponse()
+        val invalidEmail = "invalid_email"
+        every { userAuthenticationService.generateTokenByLogin(any()) } returns response
+
+        mockMvc.post("/api/users/login") {
+            jsonContent(AuthenticateUserRequest(invalidEmail, Password("password")))
+        }.andExpect {
+            status { isBadRequest() }
+        }.andDo {
+            handle(document("user-login-post-invalid-email-form"))
         }
     }
 
