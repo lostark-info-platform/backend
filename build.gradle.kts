@@ -65,25 +65,27 @@ tasks {
             jvmTarget = "17"
         }
     }
-
     withType<Test> {
         useJUnitPlatform()
     }
-
+    // spring-restdocs-mockmvc를 통해 만들어진 파일을 index 파일로 생성 (템플릿은 src/docs/asciidoc/index.adoc에 구현)
     asciidoctor {
         dependsOn(test)
         configurations("asciidoctorExt")
         baseDirFollowsSourceFile()
         inputs.dir(snippetsDir)
     }
-
+    // 만들어진 index 파일을 로컬에서 확인가능하게 카피
     register<Copy>("copyDocument") {
         dependsOn(asciidoctor)
-        from(file("build/docs/asciidoc/index.html"))
-        into(file("src/main/resources/static/docs"))
+        from("${asciidoctor.get().outputDir}/index.html")
+        into("src/main/resources/static/docs")
     }
-
-    build {
+    // 만들어진 index 파일을 jar파일안에 삽입
+    bootJar {
         dependsOn("copyDocument")
+        from("${asciidoctor.get().outputDir}/index.html") {
+            into("static/docs")
+        }
     }
 }

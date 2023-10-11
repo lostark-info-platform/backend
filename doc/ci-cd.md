@@ -2,7 +2,7 @@
 ## 사용기술
 Github Actions, Docker, EC2
 ## 동작 방식
-1. 특정 브랜치에 푸쉬하면 Github Actions의 workflows가 동작합니다. [main-branch.yml](../.github/workflows/main-branch.yml)
+1. 특정 브랜치에 푸쉬하면 Github Actions의 workflows가 동작합니다. [main-branch.yml](../.github/workflows/develop-branch.yml)
 2. Github Actions의 러너 환경에서 jdk와 gradle을 세팅합니다. 이 때 이전 workflows에서 캐싱한 gradle데이터를 사용합니다.
 3. gradle wrapper를 사용해 러너 환경에서 빌드합니다.
 4. 원하는 Dockerfile을 작성해 위에서 빌드한 jar파일을 이미지로 빌드 후 도커레포지토리로 푸쉬합니다. 
