@@ -83,7 +83,7 @@ tasks {
         into(file("src/main/resources/static/docs"))
     }
 
-    bootJar {
+    build {
         dependsOn("copyDocument")
     }
 }
