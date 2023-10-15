@@ -1,17 +1,29 @@
 package org.info.lostark.domain
 
-import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
-import jakarta.persistence.Id
-import jakarta.persistence.MappedSuperclass
+import jakarta.persistence.*
+import org.springframework.data.annotation.CreatedDate
+import org.springframework.data.annotation.LastModifiedDate
 import org.springframework.data.domain.AbstractAggregateRoot
+import org.springframework.data.jpa.domain.support.AuditingEntityListener
+import java.time.Instant
 
 @MappedSuperclass
+@EntityListeners(AuditingEntityListener::class)
 abstract class BaseEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0L
 ) {
+    @CreatedDate
+    @Column
+    var createdAt: Instant = Instant.MIN
+        protected set
+
+    @LastModifiedDate
+    @Column
+    var updatedAt: Instant = Instant.MIN
+        protected set
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
@@ -27,11 +39,22 @@ abstract class BaseEntity(
 }
 
 @MappedSuperclass
+@EntityListeners(AuditingEntityListener::class)
 abstract class BaseRootEntity<T : AbstractAggregateRoot<T>>(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0L
 ) : AbstractAggregateRoot<T>() {
+    @CreatedDate
+    @Column
+    var createdAt: Instant = Instant.MIN
+        protected set
+
+    @LastModifiedDate
+    @Column
+    var updatedAt: Instant = Instant.MIN
+        protected set
+
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
         if (javaClass != other?.javaClass) return false
