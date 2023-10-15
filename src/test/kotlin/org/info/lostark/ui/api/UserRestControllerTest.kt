@@ -1,20 +1,17 @@
 package org.info.lostark.ui.api
 
 import com.ninjasquad.springmockk.MockkBean
+import io.mockk.Runs
 import io.mockk.every
-import org.info.lostark.application.AuthenticateUserRequest
-import org.info.lostark.application.JwtTokenResponse
-import org.info.lostark.application.RefreshTokenService
-import org.info.lostark.application.RegisterUserRequest
-import org.info.lostark.application.ResignService
-import org.info.lostark.application.UserAuthenticationService
-import org.info.lostark.application.UserResponse
+import io.mockk.just
+import org.info.lostark.application.*
 import org.info.lostark.domain.user.Password
 import org.info.lostark.domain.user.UnidentifiedUserException
 import org.info.lostark.fixture.createUser
 import org.info.lostark.support.bearer
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
+import org.springframework.http.HttpHeaders
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document
 import org.springframework.test.web.servlet.get
 import org.springframework.test.web.servlet.post
@@ -112,6 +109,64 @@ class UserRestControllerTest : RestControllerTest() {
             content { success(response) }
         }.andDo {
             handle(document("user-me-get"))
+        }
+    }
+
+    @Test
+    fun `유효하지 않은 토큰으로 개인정보 요청 시 401 Unauthorized 반환한다`() {
+        mockMvc.get("/api/users/me") {
+            header(HttpHeaders.AUTHORIZATION, "invalid_token")
+        }.andExpect {
+            status { isUnauthorized() }
+            content { error("로그인 정보가 정확하지 않습니다.") }
+        }.andDo {
+            handle(document("user-me-get-unauthorized"))
+        }
+    }
+
+    @Test
+    fun `유효한 리프레시 토큰으로 로그인 요청시 토큰을 응답한다`() {
+        val response = createJwtResponse()
+        val request = TokenRefreshRequest("valid_refreshToken")
+
+        every { userAuthenticationService.generateTokenByRefreshToken(request) } returns response
+        mockMvc.post("/api/users/refresh") {
+            jsonContent(request)
+        }.andExpect {
+            status { isOk() }
+            content { success(response) }
+        }.andDo {
+            handle(document("user-refresh-post"))
+        }
+    }
+
+    @Test
+    fun `로그아웃 요청시 NoContent를 반환한다`() {
+        val request = LogoutRequest("refresh_token")
+        every { refreshTokenService.revoke(request) } just Runs
+
+        mockMvc.post("/api/users/logout") {
+            jsonContent(request)
+            bearer("valid_token")
+        }.andExpect {
+            status { isNoContent() }
+        }.andDo {
+            handle(document("user-logout-post"))
+        }
+    }
+
+    @Test
+    fun `회원탈퇴 요청시 NoContent를 반환한다`() {
+        val request = ResignRequest(Password("password"))
+        every { resignService.resign(any(), any()) } just Runs
+
+        mockMvc.post("/api/users/resign") {
+            jsonContent(request)
+            bearer("valid_token")
+        }.andExpect {
+            status { isNoContent() }
+        }.andDo {
+            handle(document("user-resign-post"))
         }
     }
 

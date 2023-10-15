@@ -78,4 +78,8 @@ abstract class RestControllerTest {
     fun ContentResultMatchersDsl.success(value: Any) {
         json(objectMapper.writeValueAsString(ApiResponse.success(value)), true)
     }
+
+    fun ContentResultMatchersDsl.error(message: String) {
+        json(objectMapper.writeValueAsString(ApiResponse.error(message)), true)
+    }
 }
