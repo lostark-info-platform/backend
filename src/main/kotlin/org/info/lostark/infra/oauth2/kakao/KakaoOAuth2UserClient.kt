@@ -1,6 +1,7 @@
-package org.info.lostark.infra.oauth2
+package org.info.lostark.infra.oauth2.kakao
 
 import org.info.lostark.domain.oauth2.OAuth2User
+import org.info.lostark.domain.oauth2.OAuth2UserClient
 import org.springframework.stereotype.Component
 
 @Component

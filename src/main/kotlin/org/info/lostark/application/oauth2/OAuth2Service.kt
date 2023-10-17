@@ -37,7 +37,7 @@ class OAuth2Service(
         val savedUser = userRepository.save(
             User(
                 UserInformation(oAuth2User.nickname, oAuth2User.email),
-                Password(oAuth2User.oAuth2Id.providerUserId.toString())
+                Password(oAuth2User.oAuth2Id.providerUserId)
             )
         )
         return oAuth2User.apply { user = savedUser }

@@ -10,7 +10,7 @@ fun OAuth2UserRepository.findByOAuth2Id(oAuth2Id: OAuth2Id) =
 interface OAuth2UserRepository : JpaRepository<OAuth2User, Long> {
     @Query("select o from OAuth2User o where o.oAuth2Id.providerUserId = :providerUserId and o.oAuth2Id.provider = :provider")
     fun findByProviderUserIdAndProvider(
-        @Param("providerUserId") providerUserId: Long,
+        @Param("providerUserId") providerUserId: String,
         @Param("provider") provider: OAuth2Provider
     ): OAuth2User?
 }

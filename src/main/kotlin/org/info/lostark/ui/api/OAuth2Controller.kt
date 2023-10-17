@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController
 class OAuth2Controller(
     private val oAuth2Service: OAuth2Service
 ) {
-    @PostMapping
+    @PostMapping("/login")
     fun login(@RequestBody request: OAuth2LoginRequest): ApiResponse<JwtTokenResponse> {
         return ApiResponse.success(oAuth2Service.login(request))
     }

@@ -1,4 +1,4 @@
-package org.info.lostark.infra.oauth2
+package org.info.lostark.infra.oauth2.kakao
 
 import org.springframework.http.HttpHeaders
 import org.springframework.web.bind.annotation.RequestHeader

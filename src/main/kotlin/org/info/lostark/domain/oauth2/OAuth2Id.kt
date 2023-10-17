@@ -8,7 +8,7 @@ import jakarta.persistence.Enumerated
 @Embeddable
 data class OAuth2Id(
     @Column
-    val providerUserId: Long,
+    val providerUserId: String,
 
     @Column
     @Enumerated(value = EnumType.STRING)

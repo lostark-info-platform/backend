@@ -13,7 +13,7 @@ create table oauth2user
 (
     id               bigint       not null auto_increment,
     user_id          bigint       not null,
-    provider_user_id bigint       not null,
+    provider_user_id varchar(255) not null,
     provider         varchar(50)  not null,
     email            varchar(255) not null,
     nickname         varchar(255) not null,
