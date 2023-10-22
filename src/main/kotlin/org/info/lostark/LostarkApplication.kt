@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing
 
 @SpringBootApplication
 @ConfigurationPropertiesScan
-@EnableJpaAuditing
 class LostarkApplication
 
 fun main(args: Array<String>) {
