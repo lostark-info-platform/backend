@@ -7,12 +7,17 @@ plugins {
     kotlin("plugin.spring") version "1.8.22"
     kotlin("plugin.jpa") version "1.8.22"
     id("org.asciidoctor.jvm.convert") version "3.3.2"
+    jacoco
 }
 
 allOpen {
     annotation("jakarta.persistence.Entity")
     annotation("jakarta.persistence.MappedSuperclass")
     annotation("jakarta.persistence.Embeddable")
+}
+
+jacoco {
+    toolVersion ="0.8.9"
 }
 
 group = "org.info"
@@ -69,6 +74,7 @@ tasks {
     }
     withType<Test> {
         useJUnitPlatform()
+        finalizedBy(jacocoTestReport)
     }
     // spring-restdocs-mockmvc를 통해 만들어진 파일을 index 파일로 생성 (템플릿은 src/docs/asciidoc/index.adoc에 구현)
     asciidoctor {
@@ -86,8 +92,25 @@ tasks {
     // 만들어진 index 파일을 jar파일안에 삽입
     bootJar {
         dependsOn("copyDocument")
+        dependsOn("copyDocument")
         from("${asciidoctor.get().outputDir}/index.html") {
             into("static/docs")
         }
+    }
+    // jacoco 적용
+    jacocoTestCoverageVerification {
+        violationRules {
+            rule {
+                limit {
+                    counter = "METHOD"
+                    value = "COVEREDRATIO"
+                    minimum = "0.50".toBigDecimal()
+                }
+            }
+        }
+    }
+    jacocoTestReport {
+        dependsOn(test)
+        finalizedBy(jacocoTestCoverageVerification)
     }
 }
