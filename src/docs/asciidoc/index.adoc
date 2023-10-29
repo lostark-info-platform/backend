@@ -4,5 +4,7 @@
 :toclevels: 1
 :sectlinks:
 
+== Lostark-info-platform
+
 include::user.adoc[]
 include::oauth2.adoc[]
