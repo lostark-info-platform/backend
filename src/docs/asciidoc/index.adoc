@@ -5,3 +5,4 @@
 :sectlinks:
 
 include::user.adoc[]
+include::oauth2.adoc[]
