@@ -8,7 +8,7 @@ class OAuth2StrategyResolver(
 ) {
     fun resolve(provider: String): OAuth2Strategy {
         return strategies
-            .find { it.provider.value == provider }
+            .find { it.provider.name == provider.uppercase() }
             ?: throw IllegalArgumentException("지원하지 않는 프로바이더입니다.")
     }
 }

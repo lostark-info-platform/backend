@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api/oauth2")
-class OAuth2Controller(
+class OAuth2RestController(
     private val oAuth2Service: OAuth2Service
 ) {
     @PostMapping("/login")

@@ -7,6 +7,7 @@ import io.mockk.just
 import org.info.lostark.application.*
 import org.info.lostark.domain.user.Password
 import org.info.lostark.domain.user.UnidentifiedUserException
+import org.info.lostark.fixture.createJwtResponse
 import org.info.lostark.fixture.createUser
 import org.info.lostark.support.bearer
 import org.junit.jupiter.api.Test
@@ -170,10 +171,5 @@ class UserRestControllerTest : RestControllerTest() {
         }
     }
 
-    private fun createJwtResponse(): JwtTokenResponse {
-        return JwtTokenResponse(
-            "valid_token",
-            "refresh_token"
-        )
-    }
+
 }

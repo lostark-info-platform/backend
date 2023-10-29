@@ -17,14 +17,13 @@ allOpen {
 }
 
 jacoco {
-    toolVersion ="0.8.9"
+    toolVersion = "0.8.9"
 }
 
 group = "org.info"
 version = "0.0.1-SNAPSHOT"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
 }
 
 repositories {
@@ -61,6 +60,7 @@ dependencies {
     // spring-rest-docs
     testImplementation("org.springframework.restdocs:spring-restdocs-mockmvc")
     asciidoctorExt("org.springframework.restdocs:spring-restdocs-asciidoctor")
+    implementation(kotlin("stdlib-jdk8"))
 }
 
 val snippetsDir by extra { file("build/generated-snippets") }
@@ -113,4 +113,7 @@ tasks {
         dependsOn(test)
         finalizedBy(jacocoTestCoverageVerification)
     }
+}
+kotlin {
+    jvmToolchain(17)
 }
