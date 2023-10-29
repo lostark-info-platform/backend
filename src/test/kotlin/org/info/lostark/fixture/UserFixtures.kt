@@ -1,10 +1,14 @@
 package org.info.lostark.fixture
 
-import java.util.UUID
+import org.info.lostark.application.JwtTokenResponse
+import org.info.lostark.domain.oauth2.OAuth2Id
+import org.info.lostark.domain.oauth2.OAuth2Provider
+import org.info.lostark.domain.oauth2.OAuth2User
 import org.info.lostark.domain.user.Password
 import org.info.lostark.domain.user.RefreshToken
 import org.info.lostark.domain.user.RefreshTokenByUser
 import org.info.lostark.domain.user.User
+import java.util.*
 
 const val NAME = "홍길동"
 const val EMAIL = "test@email.com"
@@ -31,4 +35,24 @@ fun createRefreshTokenByUser(
     tokens: MutableList<String> = mutableListOf(UUID.randomUUID().toString())
 ): RefreshTokenByUser {
     return RefreshTokenByUser(id, tokens)
+}
+
+fun createJwtResponse(): JwtTokenResponse {
+    return JwtTokenResponse(
+        "valid_token",
+        "refresh_token"
+    )
+}
+
+fun createOAuth2User(
+    providerUserId: String = "101010101010",
+    provider: OAuth2Provider = OAuth2Provider.KAKAO,
+    email: String = "email@gmail.com",
+    nickname: String = "nickname"
+): OAuth2User {
+    return OAuth2User(
+        oAuth2Id = OAuth2Id(providerUserId, provider),
+        email = email,
+        nickname = nickname
+    )
 }
