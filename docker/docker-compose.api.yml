@@ -8,6 +8,8 @@ services:
       - "8080:8080"
     volumes:
       - /home/ec2-user/secret:/root/app/secret
+    environment:
+      TZ: "Asia/Seoul"
   green:
     image: duhanmo/lostark-info-api:latest
     container_name: green
@@ -16,3 +18,5 @@ services:
       - "8081:8080"
     volumes:
       - /home/ec2-user/secret:/root/app/secret
+    environment:
+      TZ: "Asia/Seoul"
