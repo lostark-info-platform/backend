@@ -2,6 +2,7 @@ package org.info.lostark.application
 
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotBlank
+import java.time.LocalDateTime
 import org.info.lostark.domain.user.Password
 import org.info.lostark.domain.user.User
 
@@ -40,10 +41,12 @@ data class UserResponse(
     val id: Long,
     val name: String,
     val email: String,
+    val createdAt: LocalDateTime
 ) {
     constructor(user: User) : this(
         user.id,
         user.name,
-        user.email
+        user.email,
+        user.createdAt
     )
 }
