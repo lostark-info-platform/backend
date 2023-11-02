@@ -5,7 +5,7 @@ import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.LastModifiedDate
 import org.springframework.data.domain.AbstractAggregateRoot
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
-import java.time.Instant
+import java.time.LocalDateTime
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener::class)
@@ -16,12 +16,12 @@ abstract class BaseEntity(
 ) {
     @CreatedDate
     @Column
-    var createdAt: Instant = Instant.MIN
+    var createdAt: LocalDateTime = LocalDateTime.MIN
         protected set
 
     @LastModifiedDate
     @Column
-    var updatedAt: Instant = Instant.MIN
+    var updatedAt: LocalDateTime = LocalDateTime.MIN
         protected set
 
     override fun equals(other: Any?): Boolean {
@@ -47,12 +47,12 @@ abstract class BaseRootEntity<T : AbstractAggregateRoot<T>>(
 ) : AbstractAggregateRoot<T>() {
     @CreatedDate
     @Column
-    var createdAt: Instant = Instant.MIN
+    var createdAt: LocalDateTime = LocalDateTime.MIN
         protected set
 
     @LastModifiedDate
     @Column
-    var updatedAt: Instant = Instant.MIN
+    var updatedAt: LocalDateTime = LocalDateTime.MIN
         protected set
 
     override fun equals(other: Any?): Boolean {

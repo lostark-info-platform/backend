@@ -2,7 +2,7 @@ package org.info.lostark.infra.oauth2.kakao
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies.SnakeCaseStrategy
 import com.fasterxml.jackson.databind.annotation.JsonNaming
-import java.time.Instant
+import java.time.LocalDateTime
 import org.info.lostark.domain.oauth2.OAuth2Id
 import org.info.lostark.domain.oauth2.OAuth2Provider
 import org.info.lostark.domain.oauth2.OAuth2User
@@ -10,7 +10,7 @@ import org.info.lostark.domain.oauth2.OAuth2User
 @JsonNaming(value = SnakeCaseStrategy::class)
 data class KakaoUserResponse(
     val id: Long,
-    val connectedAt: Instant,
+    val connectedAt: LocalDateTime,
     val properties: KakaoUserProperties,
     val kakaoAccount: KakaoAccount,
 ) {
