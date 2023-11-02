@@ -9,6 +9,7 @@ import org.info.lostark.security.LoginFailedException
 import org.info.lostark.security.LoginUser
 import org.info.lostark.security.LoginUserResolver
 import org.info.lostark.support.TestEnvironment
+import org.info.lostark.ui.api.common.ApiResponse
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.extension.ExtendWith
 import org.springframework.beans.factory.annotation.Autowired

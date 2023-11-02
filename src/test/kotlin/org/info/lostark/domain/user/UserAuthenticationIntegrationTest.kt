@@ -7,10 +7,10 @@ import io.kotest.extensions.spring.SpringTestLifecycleMode
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.string.shouldBeUUID
 import java.util.UUID
-import org.info.lostark.application.AuthenticateUserRequest
-import org.info.lostark.application.RegisterUserRequest
-import org.info.lostark.application.TokenRefreshRequest
-import org.info.lostark.application.UserAuthenticationService
+import org.info.lostark.application.user.AuthenticateUserRequest
+import org.info.lostark.application.user.RegisterUserRequest
+import org.info.lostark.application.user.TokenRefreshRequest
+import org.info.lostark.application.auth.UserAuthenticationService
 import org.info.lostark.fixture.createUser
 import org.info.lostark.support.IntegrationTest
 

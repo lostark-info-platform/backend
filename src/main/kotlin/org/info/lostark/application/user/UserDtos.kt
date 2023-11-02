@@ -1,4 +1,4 @@
-package org.info.lostark.application
+package org.info.lostark.application.user
 
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotBlank

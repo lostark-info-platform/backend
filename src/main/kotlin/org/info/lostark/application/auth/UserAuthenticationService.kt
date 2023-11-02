@@ -1,5 +1,8 @@
-package org.info.lostark.application
+package org.info.lostark.application.auth
 
+import org.info.lostark.application.user.AuthenticateUserRequest
+import org.info.lostark.application.user.RegisterUserRequest
+import org.info.lostark.application.user.TokenRefreshRequest
 import org.info.lostark.domain.user.UnidentifiedUserException
 import org.info.lostark.domain.user.User
 import org.info.lostark.domain.user.UserRepository

@@ -1,8 +1,9 @@
-package org.info.lostark.ui.api
+package org.info.lostark.ui.api.oauth2
 
-import org.info.lostark.application.JwtTokenResponse
+import org.info.lostark.application.auth.JwtTokenResponse
 import org.info.lostark.application.oauth2.OAuth2LoginRequest
 import org.info.lostark.application.oauth2.OAuth2Service
+import org.info.lostark.ui.api.common.ApiResponse
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping

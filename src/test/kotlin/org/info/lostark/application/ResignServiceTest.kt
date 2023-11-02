@@ -8,6 +8,9 @@ import io.mockk.every
 import io.mockk.just
 import io.mockk.mockk
 import io.mockk.verify
+import org.info.lostark.application.auth.RefreshTokenService
+import org.info.lostark.application.auth.ResignService
+import org.info.lostark.application.user.ResignRequest
 import org.info.lostark.domain.user.Password
 import org.info.lostark.domain.user.UnidentifiedUserException
 import org.info.lostark.domain.user.UserRepository

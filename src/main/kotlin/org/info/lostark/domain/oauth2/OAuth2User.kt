@@ -1,7 +1,7 @@
 package org.info.lostark.domain.oauth2
 
 import jakarta.persistence.*
-import org.info.lostark.domain.BaseEntity
+import org.info.lostark.domain.common.BaseEntity
 import org.info.lostark.domain.user.User
 
 @Entity

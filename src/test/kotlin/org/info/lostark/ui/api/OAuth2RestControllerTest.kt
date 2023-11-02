@@ -5,6 +5,7 @@ import io.mockk.every
 import org.info.lostark.application.oauth2.OAuth2LoginRequest
 import org.info.lostark.application.oauth2.OAuth2Service
 import org.info.lostark.fixture.createJwtResponse
+import org.info.lostark.ui.api.oauth2.OAuth2RestController
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document

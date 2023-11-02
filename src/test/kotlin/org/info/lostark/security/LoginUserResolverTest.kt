@@ -7,7 +7,7 @@ import io.kotest.matchers.equality.shouldBeEqualToComparingFields
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
-import org.info.lostark.application.UserService
+import org.info.lostark.application.user.UserService
 import org.info.lostark.domain.user.User
 import org.info.lostark.fixture.createUser
 import org.springframework.core.MethodParameter

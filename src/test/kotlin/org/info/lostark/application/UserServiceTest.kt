@@ -6,6 +6,7 @@ import io.kotest.matchers.shouldBe
 import io.mockk.clearAllMocks
 import io.mockk.every
 import io.mockk.mockk
+import org.info.lostark.application.user.UserService
 import org.info.lostark.domain.user.UserRepository
 import org.info.lostark.domain.user.findByEmail
 import org.info.lostark.fixture.createUser

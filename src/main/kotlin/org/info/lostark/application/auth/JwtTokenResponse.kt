@@ -1,4 +1,4 @@
-package org.info.lostark.application
+package org.info.lostark.application.auth
 
 data class JwtTokenResponse(
     val token: String,

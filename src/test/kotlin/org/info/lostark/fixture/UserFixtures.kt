@@ -1,6 +1,6 @@
 package org.info.lostark.fixture
 
-import org.info.lostark.application.JwtTokenResponse
+import org.info.lostark.application.auth.JwtTokenResponse
 import org.info.lostark.domain.oauth2.OAuth2Id
 import org.info.lostark.domain.oauth2.OAuth2Provider
 import org.info.lostark.domain.oauth2.OAuth2User

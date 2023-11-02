@@ -1,10 +1,11 @@
-package org.info.lostark.application
+package org.info.lostark.application.auth
 
 import org.info.lostark.domain.user.*
 import org.springframework.data.repository.findByIdOrNull
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.util.*
+import org.info.lostark.application.user.LogoutRequest
 
 @Transactional
 @Service

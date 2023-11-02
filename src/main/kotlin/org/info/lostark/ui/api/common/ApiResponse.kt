@@ -1,4 +1,4 @@
-package org.info.lostark.ui.api
+package org.info.lostark.ui.api.common
 
 data class ApiResponse<T>(
     val message: String? = null,
