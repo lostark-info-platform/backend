@@ -1,4 +1,4 @@
-package org.info.lostark.ui.api
+package org.info.lostark.ui.api.common
 
 import org.info.lostark.domain.user.UnidentifiedUserException
 import org.info.lostark.security.LoginFailedException

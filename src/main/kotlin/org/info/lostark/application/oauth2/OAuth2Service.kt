@@ -1,7 +1,7 @@
 package org.info.lostark.application.oauth2
 
-import org.info.lostark.application.JwtTokenResponse
-import org.info.lostark.application.RefreshTokenService
+import org.info.lostark.application.auth.JwtTokenResponse
+import org.info.lostark.application.auth.RefreshTokenService
 import org.info.lostark.domain.oauth2.OAuth2User
 import org.info.lostark.domain.oauth2.OAuth2UserRepository
 import org.info.lostark.domain.oauth2.findByOAuth2Id

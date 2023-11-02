@@ -1,6 +1,6 @@
 package org.info.lostark.security
 
-import org.info.lostark.application.UserService
+import org.info.lostark.application.user.UserService
 import org.info.lostark.domain.user.User
 import org.springframework.core.MethodParameter
 import org.springframework.http.HttpHeaders.AUTHORIZATION

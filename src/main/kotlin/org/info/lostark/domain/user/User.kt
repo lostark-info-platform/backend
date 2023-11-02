@@ -4,7 +4,7 @@ import jakarta.persistence.AttributeOverride
 import jakarta.persistence.Column
 import jakarta.persistence.Embedded
 import jakarta.persistence.Entity
-import org.info.lostark.domain.BaseRootEntity
+import org.info.lostark.domain.common.BaseRootEntity
 
 @Entity
 class User(

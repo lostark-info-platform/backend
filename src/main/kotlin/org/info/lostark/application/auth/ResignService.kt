@@ -1,5 +1,6 @@
-package org.info.lostark.application
+package org.info.lostark.application.auth
 
+import org.info.lostark.application.user.ResignRequest
 import org.info.lostark.domain.user.UserRepository
 import org.info.lostark.domain.user.getOrThrow
 import org.springframework.stereotype.Service

@@ -1,4 +1,4 @@
-package org.info.lostark.domain
+package org.info.lostark.domain.common
 
 import jakarta.persistence.*
 import org.springframework.data.annotation.CreatedDate

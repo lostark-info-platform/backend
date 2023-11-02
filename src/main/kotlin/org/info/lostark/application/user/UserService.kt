@@ -1,4 +1,4 @@
-package org.info.lostark.application
+package org.info.lostark.application.user
 
 import org.info.lostark.domain.user.User
 import org.info.lostark.domain.user.UserRepository
