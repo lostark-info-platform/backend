@@ -28,7 +28,7 @@ class UserRestController(
     private val resignService: ResignService
 ) {
     @PostMapping("/register")
-    fun generateToken(@RequestBody request: RegisterUserRequest): ResponseEntity<ApiResponse<JwtTokenResponse>> {
+    fun generateToken(@RequestBody @Valid request: RegisterUserRequest): ResponseEntity<ApiResponse<JwtTokenResponse>> {
         val token = userAuthenticationService.generateTokenByRegister(request)
         return ResponseEntity.ok(ApiResponse.success(token))
     }
