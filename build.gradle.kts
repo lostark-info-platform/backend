@@ -102,7 +102,7 @@ tasks {
         violationRules {
             rule {
                 limit {
-                    counter = "METHOD"
+                    counter = "LINE"
                     value = "COVEREDRATIO"
                     minimum = "0.50".toBigDecimal()
                 }
