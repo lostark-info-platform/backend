@@ -22,5 +22,21 @@ create table oauth2user
     primary key (id)
 ) engine=InnoDB;
 
+create table schedule
+(
+    id         bigint       not null auto_increment,
+    user_id    bigint       not null,
+    title      varchar(255) not null,
+    category   varchar(255) not null,
+    state      varchar(50)  not null,
+    memo       varchar(255),
+    start_date datetime     not null,
+    end_date   datetime     not null,
+    alarm_date datetime,
+    created_at datetime,
+    updated_at datetime,
+    primary key (id)
+) engine=InnoDB;
+
 alter table user
     add constraint UK_6iduje2h6ggdlnmevw2mvolfx unique (email);
