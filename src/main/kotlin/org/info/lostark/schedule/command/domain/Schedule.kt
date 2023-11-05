@@ -34,6 +34,19 @@ class Schedule private constructor(
         protected set
 
     @Column
+    var category: String = ""
+        protected set
+
+    @Column
+    @Enumerated(EnumType.STRING)
+    var state: ScheduleState = TODO
+        protected set
+
+    @Column
+    var memo: String = ""
+        protected set
+
+    @Column
     var startDate: LocalDateTime = LocalDateTime.now()
         protected set
 
@@ -42,20 +55,7 @@ class Schedule private constructor(
         protected set
 
     @Column
-    var category: String = ""
-        protected set
-
-    @Column
     var alarmDate: LocalDateTime? = null
-        protected set
-
-    @Column
-    var memo: String = ""
-        protected set
-
-    @Column
-    @Enumerated(EnumType.STRING)
-    var state: ScheduleState = TODO
         protected set
 
     fun update(
