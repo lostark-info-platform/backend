@@ -8,11 +8,11 @@
 ![tech-stack](./doc/tech-stack.001.jpeg)
 
 ## 프로젝트 진행시 관심사
+- Domain Driven Design + CQRS pattern을 적용합니다.
 - 배포과정에 DownTime이 없게 합니다.
 - 모든 작업은 issue task를 통해 진행하며 협업에 집중합니다.
-- 브랜치 커버리지를 80% 이상으로 유지합니다.(추후 100%도전)
+- 브랜치 커버리지를 80% 이상으로 유지합니다.
 - 한 메서드의 라인수가 15줄을 넘기지 않습니다.
-- else문을 지양합니다.
 - 지속적으로 리팩터링 합니다.
 
 ## Infra Structure
