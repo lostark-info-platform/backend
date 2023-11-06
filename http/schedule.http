@@ -1,0 +1,3 @@
+### 내 전체 스케줄
+GET http://localhost:8080/api/schedules
+Authorization: Bearer {{auth_token}}
