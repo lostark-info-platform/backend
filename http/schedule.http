@@ -52,3 +52,12 @@ DELETE http://localhost:8080/api/schedules/1
 Authorization: Bearer {{auth_token}}
 Content-Type: application/json
 
+### 스케줄 완료
+POST http://localhost:8080/api/schedules/3/check
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+### 스케줄 미완료
+POST http://localhost:8080/api/schedules/3/uncheck
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json

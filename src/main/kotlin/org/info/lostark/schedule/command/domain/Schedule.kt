@@ -1,10 +1,17 @@
 package org.info.lostark.schedule.command.domain
 
-import jakarta.persistence.*
+import jakarta.persistence.Column
+import jakarta.persistence.Entity
+import jakarta.persistence.EnumType
+import jakarta.persistence.Enumerated
+import jakarta.persistence.FetchType
+import jakarta.persistence.JoinColumn
+import jakarta.persistence.ManyToOne
+import java.time.LocalDateTime
 import org.info.lostark.common.domain.BaseRootEntity
+import org.info.lostark.schedule.command.domain.ScheduleState.DONE
 import org.info.lostark.schedule.command.domain.ScheduleState.TODO
 import org.info.lostark.user.command.domain.User
-import java.time.LocalDateTime
 
 @Entity
 class Schedule private constructor(
@@ -70,7 +77,19 @@ class Schedule private constructor(
         this.startDate = startDate
         this.endDate = endDate
         this.category = category
-        this.alarmDate = alarmAgoMinute?.let { startDate.minusMinutes(alarmAgoMinute.toLong()) }
+        this.alarmDate = subtractAlarmMinuteFromStartDate(alarmAgoMinute, startDate)
         this.memo = memo
+    }
+
+    fun check() {
+        state = DONE
+    }
+
+    fun uncheck() {
+        state = TODO
+    }
+
+    private fun subtractAlarmMinuteFromStartDate(alarmAgoMinute: Int?, startDate: LocalDateTime): LocalDateTime? {
+        return alarmAgoMinute?.let { startDate.minusMinutes(alarmAgoMinute.toLong()) }
     }
 }

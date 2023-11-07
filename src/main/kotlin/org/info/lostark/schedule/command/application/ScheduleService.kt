@@ -31,9 +31,8 @@ class ScheduleService(
     }
 
     fun update(command: ScheduleUpdateCommand) {
-        val user = userRepository.getOrThrow(command.userId)
         val schedule = scheduleRepository.getOrThrow(command.scheduleId)
-        check(schedule.user == user)
+        check(schedule.user.id == command.userId)
         schedule.update(
             command.title,
             command.startDate,
@@ -45,9 +44,8 @@ class ScheduleService(
     }
 
     fun delete(userId: Long, scheduleId: Long) {
-        val user = userRepository.getOrThrow(userId)
         val schedule = scheduleRepository.getOrThrow(scheduleId)
-        check(schedule.user == user)
+        check(schedule.user.id == userId)
         scheduleRepository.delete(schedule)
     }
 }
