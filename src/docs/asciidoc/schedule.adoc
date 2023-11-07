@@ -1,0 +1,25 @@
+= 스케줄 관련 API
+
+== 내 스케줄 전체 조회
+
+operation::schedule-me-list-get[snippets='http-request,http-response']
+
+== 스케줄 등록
+
+operation::schedule-post[snippets='http-request,http-response']
+
+== 스케줄 수정
+
+operation::schedule-update-post[snippets='http-request,http-response']
+
+== 스케줄 삭제
+
+operation::schedule-delete[snippets='http-request,http-response']
+
+== 스케줄 체크
+
+operation::schedule-check-post[snippets='http-request,http-response']
+
+== 스케줄 체크해제
+
+operation::schedule-uncheck-post[snippets='http-request,http-response']

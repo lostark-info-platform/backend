@@ -1,0 +1,63 @@
+### 로그인
+POST http://localhost:8080/api/users/login
+Content-Type: application/json
+
+{
+  "email": "gildong@email.com",
+  "password": "password"
+}
+
+> {%
+    client.global.set("auth_token", response.body.data.token);
+    client.global.set("refresh_token", response.body.data.refreshToken);
+%}
+
+
+### 내 전체 스케줄
+GET http://localhost:8080/api/schedules
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+### 스케줄 등록
+POST http://localhost:8080/api/schedules
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+{
+  "title": "새로운 제목",
+  "startDate": "2023-11-08T05:00:00",
+  "endDate": "2023-11-09T05:00:00",
+  "category": "뉴카테고리",
+  "alarmAgoMinute": 5,
+  "memo": "새로운 메모"
+}
+
+
+### 스케줄 수정
+POST http://localhost:8080/api/schedules/10
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+{
+  "title": "수정한 제목",
+  "startDate": "2023-11-08T05:00:00",
+  "endDate": "2023-11-09T05:00:00",
+  "category": "수정한카테고리",
+  "alarmAgoMinute": 10,
+  "memo": "새로운 메모"
+}
+
+### 스케줄 삭제
+DELETE http://localhost:8080/api/schedules/1
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+### 스케줄 완료
+POST http://localhost:8080/api/schedules/3/check
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json
+
+### 스케줄 미완료
+POST http://localhost:8080/api/schedules/3/uncheck
+Authorization: Bearer {{auth_token}}
+Content-Type: application/json

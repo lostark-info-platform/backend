@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
   "name": "홍길동",
-  "email": "gildong@test.com",
+  "email": "gildong1@email.com",
   "password": "password",
   "confirmPassword": "password"
 }
@@ -14,7 +14,7 @@ POST http://localhost:8080/api/users/login
 Content-Type: application/json
 
 {
-  "email": "gildong@test.com",
+  "email": "gildong@email.com",
   "password": "password"
 }
 

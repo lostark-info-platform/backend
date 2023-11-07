@@ -7,7 +7,11 @@ import io.mockk.just
 import org.info.lostark.auth.command.application.RefreshTokenService
 import org.info.lostark.auth.command.application.ResignService
 import org.info.lostark.auth.command.application.UserAuthenticationService
-import org.info.lostark.auth.presentation.dto.*
+import org.info.lostark.auth.presentation.dto.AuthenticateUserRequest
+import org.info.lostark.auth.presentation.dto.LogoutRequest
+import org.info.lostark.auth.presentation.dto.RegisterUserRequest
+import org.info.lostark.auth.presentation.dto.ResignRequest
+import org.info.lostark.auth.presentation.dto.TokenRefreshRequest
 import org.info.lostark.fixture.createJwtResponse
 import org.info.lostark.support.RestControllerTest
 import org.info.lostark.support.bearer
@@ -150,6 +154,4 @@ class UserAuthRestControllerTest : RestControllerTest() {
             handle(document("user-resign-post"))
         }
     }
-
-
 }
