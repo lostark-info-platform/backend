@@ -4,6 +4,7 @@ import org.info.lostark.common.presentation.ApiResponse
 import org.info.lostark.common.security.LoginUser
 import org.info.lostark.user.command.domain.User
 import org.info.lostark.user.query.dto.UserQueryResponse
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 class UserInfoRestController {
     @GetMapping("/me")
-    fun me(@LoginUser user: User): ApiResponse<UserQueryResponse> {
-        return ApiResponse.success(UserQueryResponse(user))
+    fun me(@LoginUser user: User): ResponseEntity<ApiResponse<UserQueryResponse>> {
+        return ResponseEntity.ok(ApiResponse.success(UserQueryResponse(user)))
     }
 }
