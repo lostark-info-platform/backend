@@ -1,10 +1,10 @@
-package org.info.lostark.auth.infra.oauth2.kakao
+package org.info.lostark.auth.infra.oauth2.kakao.dto
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies.SnakeCaseStrategy
 import com.fasterxml.jackson.databind.annotation.JsonNaming
 import org.info.lostark.auth.command.domain.OAuth2Id
-import org.info.lostark.auth.command.domain.OAuth2Provider
 import org.info.lostark.auth.command.domain.OAuth2User
+import org.info.lostark.auth.command.domain.SocialProvider
 import java.time.LocalDateTime
 
 @JsonNaming(value = SnakeCaseStrategy::class)
@@ -16,8 +16,8 @@ data class KakaoUserResponse(
 ) {
     fun toEntity(): OAuth2User {
         return OAuth2User(
-            OAuth2Id(id.toString(), OAuth2Provider.KAKAO),
-            kakaoAccount.email,
+            OAuth2Id(id.toString(), SocialProvider.KAKAO),
+            "",
             properties.nickname
         )
     }
@@ -32,11 +32,6 @@ data class KakaoUserProperties(
 data class KakaoAccount(
     val profileNicknameNeedsAgreement: Boolean,
     val profile: KakaoAccountProfile,
-    val hasEmail: Boolean,
-    val emailNeedsAgreement: Boolean,
-    val isEmailValid: Boolean,
-    val isEmailVerified: Boolean,
-    val email: String
 )
 
 @JsonNaming(value = SnakeCaseStrategy::class)

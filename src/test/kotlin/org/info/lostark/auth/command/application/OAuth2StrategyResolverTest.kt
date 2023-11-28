@@ -6,7 +6,7 @@ import io.kotest.matchers.nulls.shouldNotBeNull
 import io.mockk.clearAllMocks
 import io.mockk.every
 import io.mockk.mockk
-import org.info.lostark.auth.command.domain.OAuth2Provider
+import org.info.lostark.auth.command.domain.SocialProvider
 import org.info.lostark.support.afterRootTest
 
 class OAuth2StrategyResolverTest : BehaviorSpec({
@@ -16,9 +16,9 @@ class OAuth2StrategyResolverTest : BehaviorSpec({
     val oAuth2StrategyResolver = OAuth2StrategyResolver(listOf(kakaoOAuth2Strategy, googleOAuth2Strategy))
 
     Given("지원하는 프로바이더가 존재하는 경우") {
-        val provider = "KAKAO"
-        every { kakaoOAuth2Strategy.provider } returns OAuth2Provider.KAKAO
-        every { googleOAuth2Strategy.provider } returns OAuth2Provider.GOOGLE
+        val provider = SocialProvider.of("KAKAO")
+        every { kakaoOAuth2Strategy.provider } returns SocialProvider.KAKAO
+        every { googleOAuth2Strategy.provider } returns SocialProvider.GOOGLE
 
         When("프로바이더 로그인 전략을 찾으면") {
             val actual = oAuth2StrategyResolver.resolve(provider)
@@ -30,21 +30,17 @@ class OAuth2StrategyResolverTest : BehaviorSpec({
     }
 
     Given("지원하는 프로바이더가 존재하지 않는 경우") {
-        val provider = "facebook"
-        every { kakaoOAuth2Strategy.provider } returns OAuth2Provider.KAKAO
-        every { googleOAuth2Strategy.provider } returns OAuth2Provider.GOOGLE
-
         When("프로바이더 로그인 전략을 찾으면") {
-            Then("정상 응답한다") {
-                shouldThrow<IllegalArgumentException> { oAuth2StrategyResolver.resolve(provider) }
+            Then("에러 발생한다") {
+                shouldThrow<IllegalArgumentException> { SocialProvider.of("unsupported_provider") }
             }
         }
     }
 
     Given("지원하는 프로바이더를 소문자로 입력한 경우") {
-        val lowerCaseProvider = "google"
-        every { kakaoOAuth2Strategy.provider } returns OAuth2Provider.KAKAO
-        every { googleOAuth2Strategy.provider } returns OAuth2Provider.GOOGLE
+        val lowerCaseProvider = SocialProvider.of("google")
+        every { kakaoOAuth2Strategy.provider } returns SocialProvider.KAKAO
+        every { googleOAuth2Strategy.provider } returns SocialProvider.GOOGLE
 
         When("프로바이더 로그인 전략을 찾으면") {
             val actual = oAuth2StrategyResolver.resolve(lowerCaseProvider)
