@@ -12,5 +12,5 @@ data class OAuth2Id(
 
     @Column
     @Enumerated(value = EnumType.STRING)
-    val provider: OAuth2Provider
+    val provider: SocialProvider
 )

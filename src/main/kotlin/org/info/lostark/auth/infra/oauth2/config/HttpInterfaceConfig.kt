@@ -1,7 +1,7 @@
 package org.info.lostark.auth.infra.oauth2.config
 
-import org.info.lostark.auth.infra.oauth2.google.GoogleApiClient
-import org.info.lostark.auth.infra.oauth2.kakao.KakaoApiClient
+import org.info.lostark.auth.infra.oauth2.google.client.GoogleApiClient
+import org.info.lostark.auth.infra.oauth2.kakao.client.KakaoApiClient
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.web.reactive.function.client.WebClient

@@ -2,8 +2,8 @@ package org.info.lostark.fixture
 
 import org.info.lostark.auth.command.application.dto.JwtTokenCommandResponse
 import org.info.lostark.auth.command.domain.OAuth2Id
-import org.info.lostark.auth.command.domain.OAuth2Provider
 import org.info.lostark.auth.command.domain.OAuth2User
+import org.info.lostark.auth.command.domain.SocialProvider
 import org.info.lostark.user.command.domain.Password
 import org.info.lostark.user.command.domain.RefreshToken
 import org.info.lostark.user.command.domain.RefreshTokenByUser
@@ -46,7 +46,7 @@ fun createJwtResponse(): JwtTokenCommandResponse {
 
 fun createOAuth2User(
     providerUserId: String = "101010101010",
-    provider: OAuth2Provider = OAuth2Provider.KAKAO,
+    provider: SocialProvider = SocialProvider.KAKAO,
     email: String = "email@gmail.com",
     nickname: String = "nickname",
     user: User? = null

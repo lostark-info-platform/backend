@@ -1,9 +1,8 @@
 package org.info.lostark.user.command.domain
 
-import jakarta.persistence.AttributeOverride
-import jakarta.persistence.Column
-import jakarta.persistence.Embedded
-import jakarta.persistence.Entity
+import jakarta.persistence.*
+import jakarta.persistence.EnumType.STRING
+import org.info.lostark.auth.command.domain.SocialProvider
 import org.info.lostark.common.domain.BaseRootEntity
 
 @Entity
@@ -24,6 +23,13 @@ class User(
     ) : this(
         UserInformation(name, email), password, id
     )
+
+    @Column
+    val socialUid: String? = null
+
+    @Column
+    @Enumerated(STRING)
+    val socialProvider: SocialProvider? = null
 
     val name: String
         get() = information.name

@@ -1,9 +1,13 @@
 = 소셜 로그인 관련 API
 
-== 로그인
+== 소셜 로그인 뷰 리다이렉트
+
+operation::oauth2-code-redirect[snippets='http-request,http-response']
+
+== 인증코드 클라이언트 리다이렉트
+
+operation::oauth2-code-callback-redirect-to-client[snippets='http-request,http-response']
+
+== 로그인 성공
 
 operation::oauth2-login-post[snippets='http-request,http-response']
-
-== 로그인 실패 (지원하지 않는 프로바이더)
-
-operation::oauth2-login-post-unsupported-provider[snippets='http-request,http-response']

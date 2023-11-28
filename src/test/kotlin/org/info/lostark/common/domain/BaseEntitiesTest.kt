@@ -5,8 +5,8 @@ import io.kotest.matchers.equals.shouldBeEqual
 import io.kotest.matchers.equals.shouldNotBeEqual
 import io.kotest.matchers.shouldBe
 import org.info.lostark.auth.command.domain.OAuth2Id
-import org.info.lostark.auth.command.domain.OAuth2Provider
 import org.info.lostark.auth.command.domain.OAuth2User
+import org.info.lostark.auth.command.domain.SocialProvider
 import org.info.lostark.user.command.domain.Password
 import org.info.lostark.user.command.domain.User
 
@@ -49,13 +49,13 @@ class BaseEntitiesTest : StringSpec({
 
     "BaseEntity의 id가 같다면 동일한 객체이다" {
         val oAuth2User1 = OAuth2User(
-            OAuth2Id("provider_user_id", OAuth2Provider.KAKAO),
+            OAuth2Id("provider_user_id", SocialProvider.KAKAO),
             "user@email.com",
             "nickname",
             1L
         )
         val oAuth2User2 = OAuth2User(
-            OAuth2Id("provider_user_id", OAuth2Provider.KAKAO),
+            OAuth2Id("provider_user_id", SocialProvider.KAKAO),
             "user@email.com",
             "nickname",
             1L
@@ -67,13 +67,13 @@ class BaseEntitiesTest : StringSpec({
 
     "BaseEntity의 id가 다르다면 동일한 객체가 아니다" {
         val oAuth2User1 = OAuth2User(
-            OAuth2Id("provider_user_id", OAuth2Provider.KAKAO),
+            OAuth2Id("provider_user_id", SocialProvider.KAKAO),
             "user@email.com",
             "nickname",
             1L
         )
         val oAuth2User2 = OAuth2User(
-            OAuth2Id("provider_user_id", OAuth2Provider.GOOGLE),
+            OAuth2Id("provider_user_id", SocialProvider.GOOGLE),
             "user@email.com",
             "nickname",
             2L
