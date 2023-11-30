@@ -1,22 +1,26 @@
 package org.info.lostark.auth.infra.oauth2.kakao.client
 
-import org.info.lostark.auth.command.domain.OAuth2User
-import org.info.lostark.auth.command.domain.OAuth2UserClient
+import org.info.lostark.auth.command.domain.OAuth2UserClientStrategy
+import org.info.lostark.auth.command.domain.OAuth2UserData
 import org.info.lostark.auth.infra.oauth2.kakao.KakaoOAuth2Properties
 import org.info.lostark.auth.infra.oauth2.kakao.dto.KakaoUserResponse
+import org.info.lostark.user.command.domain.SocialProvider
 import org.springframework.stereotype.Component
 import org.springframework.util.LinkedMultiValueMap
 import org.springframework.util.MultiValueMap
 
 @Component
-class KakaoOAuth2UserClient(
+class KakaoOAuth2UserClientStrategy(
     private val kakaoApiClient: KakaoApiClient,
     private val properties: KakaoOAuth2Properties
-) : OAuth2UserClient {
-    override fun fetch(code: String): OAuth2User {
+) : OAuth2UserClientStrategy {
+    override val support: SocialProvider
+        get() = SocialProvider.KAKAO
+
+    override fun fetch(code: String): OAuth2UserData {
         val kakaotoken = kakaoApiClient.fetchToken(tokenRequestParams(code))
         val kakaoUserResponse: KakaoUserResponse = kakaoApiClient.fetchUser("Bearer ${kakaotoken.accessToken}")
-        return kakaoUserResponse.toEntity()
+        return kakaoUserResponse.toOAuth2UserData()
     }
 
     private fun tokenRequestParams(code: String): MultiValueMap<String, String> {

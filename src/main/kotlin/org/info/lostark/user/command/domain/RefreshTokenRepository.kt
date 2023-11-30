@@ -1,9 +1,9 @@
 package org.info.lostark.user.command.domain
 
-import org.springframework.data.repository.CrudRepository
-import org.springframework.data.repository.findByIdOrNull
+import org.springframework.data.jpa.repository.JpaRepository
 
-fun RefreshTokenRepository.getOrThrow(id: String) = findByIdOrNull(id)
-    ?: throw NoSuchElementException("리프레시 토큰이 존재하지 않습니다. id: $id")
 
-interface RefreshTokenRepository : CrudRepository<RefreshToken, String>
+interface RefreshTokenRepository : JpaRepository<RefreshToken, String> {
+    fun findByJwt(jwt: String): RefreshToken?
+    fun deleteAllByUserId(userId: Long)
+}

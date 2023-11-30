@@ -1,11 +1,18 @@
 package org.info.lostark.user.command.domain
 
-import jakarta.persistence.Id
-import org.springframework.data.redis.core.RedisHash
+import jakarta.persistence.*
+import jakarta.persistence.GenerationType.IDENTITY
 
-@RedisHash(value = "refresh-token", timeToLive = 3600L * 24L * 14L)
-data class RefreshToken(
+@Entity
+class RefreshToken(
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    val user: User,
+
+    @Column
+    val jwt: String
+) {
     @Id
-    val id: String,
-    val userId: Long
-)
+    @GeneratedValue(strategy = IDENTITY)
+    val id: Long = 0L
+}

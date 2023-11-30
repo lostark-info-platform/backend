@@ -1,7 +1,6 @@
 package org.info.lostark.schedule.presentation
 
 import org.info.lostark.common.presentation.ApiResponse
-import org.info.lostark.common.security.LoginUser
 import org.info.lostark.schedule.command.application.ScheduleService
 import org.info.lostark.schedule.presentation.dto.ScheduleRegisterRequest
 import org.info.lostark.schedule.presentation.dto.ScheduleUpdateRequest
@@ -9,13 +8,8 @@ import org.info.lostark.schedule.query.ScheduleQueryService
 import org.info.lostark.schedule.query.dto.ScheduleQueryResponse
 import org.info.lostark.user.command.domain.User
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.DeleteMapping
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.security.core.annotation.AuthenticationPrincipal
+import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/schedules")
@@ -25,19 +19,24 @@ class ScheduleRestController(
 
 ) {
     @GetMapping
-    fun findAllScheduleByUserId(@LoginUser user: User): ResponseEntity<ApiResponse<List<ScheduleQueryResponse>>> {
+    fun findAllScheduleByUserId(
+        @AuthenticationPrincipal user: User
+    ): ResponseEntity<ApiResponse<List<ScheduleQueryResponse>>> {
         return ResponseEntity.ok(ApiResponse.success(scheduleQueryService.findAllScheduleByUserId(user.id)))
     }
 
     @PostMapping
-    fun register(@LoginUser user: User, @RequestBody request: ScheduleRegisterRequest): ResponseEntity<Unit> {
+    fun register(
+        @AuthenticationPrincipal user: User,
+        @RequestBody request: ScheduleRegisterRequest
+    ): ResponseEntity<Unit> {
         scheduleService.register(request.toCommand(user.id))
         return ResponseEntity.ok().build()
     }
 
     @PostMapping("/{scheduleId}")
     fun update(
-        @LoginUser user: User,
+        @AuthenticationPrincipal user: User,
         @PathVariable scheduleId: Long,
         @RequestBody request: ScheduleUpdateRequest
     ): ResponseEntity<Unit> {
@@ -47,7 +46,7 @@ class ScheduleRestController(
 
     @DeleteMapping("/{scheduleId}")
     fun delete(
-        @LoginUser user: User,
+        @AuthenticationPrincipal user: User,
         @PathVariable scheduleId: Long,
     ): ResponseEntity<Unit> {
         scheduleService.delete(user.id, scheduleId)

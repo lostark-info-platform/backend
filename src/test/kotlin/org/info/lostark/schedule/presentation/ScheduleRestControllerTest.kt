@@ -12,6 +12,7 @@ import org.info.lostark.schedule.command.application.ScheduleService
 import org.info.lostark.schedule.query.ScheduleQueryService
 import org.info.lostark.support.RestControllerTest
 import org.info.lostark.support.bearer
+import org.info.lostark.support.security.WithMockCustomUser
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation
@@ -19,6 +20,7 @@ import org.springframework.test.web.servlet.delete
 import org.springframework.test.web.servlet.get
 import org.springframework.test.web.servlet.post
 
+@WithMockCustomUser
 @WebMvcTest(ScheduleRestController::class)
 class ScheduleRestControllerTest : RestControllerTest() {
     @MockkBean

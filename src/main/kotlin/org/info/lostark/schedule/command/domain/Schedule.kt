@@ -1,22 +1,16 @@
 package org.info.lostark.schedule.command.domain
 
-import jakarta.persistence.Column
-import jakarta.persistence.Entity
-import jakarta.persistence.EnumType
-import jakarta.persistence.Enumerated
-import jakarta.persistence.FetchType
-import jakarta.persistence.JoinColumn
-import jakarta.persistence.ManyToOne
-import java.time.LocalDateTime
+import jakarta.persistence.*
 import org.info.lostark.common.domain.BaseRootEntity
 import org.info.lostark.schedule.command.domain.ScheduleState.DONE
 import org.info.lostark.schedule.command.domain.ScheduleState.TODO
 import org.info.lostark.user.command.domain.User
+import java.time.LocalDateTime
 
 @Entity
 class Schedule private constructor(
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId")
+    @JoinColumn(name = "user_id")
     var user: User,
     id: Long = 0
 ) : BaseRootEntity<Schedule>(id) {

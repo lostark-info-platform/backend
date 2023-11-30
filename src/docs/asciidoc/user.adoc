@@ -1,41 +1,5 @@
 = 회원 관련 API
 
-== 회원 가입
-
-operation::user-register-post[snippets='http-request,http-response']
-
-== 회원 가입 실패 (이미 존재하는 이메일)
-
-operation::user-register-post-already-exist-email[snippets='http-request,http-response']
-
-== 로그인
-
-operation::user-login-post[snippets='http-request,http-response']
-
-== 로그인 실패 (정보 불일치)
-
-operation::user-login-post-forbidden[snippets='http-request,http-response']
-
-== 로그인 실패 (이메일 형식 에러)
-
-operation::user-login-post-invalid-email-form[snippets='http-request,http-response']
-
 == 내 정보 조회
 
 operation::user-me-get[snippets='http-request,http-response']
-
-== 내 정보 조회 실패 (유효하지 않은 토큰)
-
-operation::user-me-get-unauthorized[snippets='http-request,http-response']
-
-== 토큰 갱신
-
-operation::user-refresh-post[snippets='http-request,http-response']
-
-== 로그아웃
-
-operation::user-logout-post[snippets='http-request,http-response']
-
-== 회원탈퇴
-
-operation::user-resign-post[snippets='http-request,http-response']

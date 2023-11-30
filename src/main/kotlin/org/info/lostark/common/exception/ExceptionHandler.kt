@@ -1,8 +1,8 @@
 package org.info.lostark.common.exception
 
+import io.jsonwebtoken.ClaimJwtException
+import io.jsonwebtoken.security.SignatureException
 import org.info.lostark.common.presentation.ApiResponse
-import org.info.lostark.common.security.LoginFailedException
-import org.info.lostark.user.command.domain.UnidentifiedUserException
 import org.springframework.http.HttpHeaders
 import org.springframework.http.HttpStatus
 import org.springframework.http.HttpStatusCode
@@ -46,17 +46,10 @@ class ExceptionHandler : ResponseEntityExceptionHandler() {
             .body(ApiResponse.error(ex.message))
     }
 
-    @ExceptionHandler(LoginFailedException::class)
-    fun handleLoginFailedException(ex: LoginFailedException): ResponseEntity<ApiResponse<Any>> {
+    @ExceptionHandler(ClaimJwtException::class, SignatureException::class)
+    fun handleLoginFailedException(ex: RuntimeException): ResponseEntity<ApiResponse<Any>> {
         logger.error("message", ex)
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-            .body(ApiResponse.error(ex.message))
-    }
-
-    @ExceptionHandler(UnidentifiedUserException::class)
-    fun handleUnidentifiedUserException(ex: UnidentifiedUserException): ResponseEntity<ApiResponse<Any>> {
-        logger.error("message", ex)
-        return ResponseEntity.status(HttpStatus.FORBIDDEN)
             .body(ApiResponse.error(ex.message))
     }
 

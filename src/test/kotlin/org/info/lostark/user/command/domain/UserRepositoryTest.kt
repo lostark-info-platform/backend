@@ -16,12 +16,12 @@ class UserRepositoryTest(
     context("회원 조회") {
         userRepository.saveAll(
             listOf(
-                createUser("홍길동", "gildong@email.com"),
-                createUser("이순신", "sunsin@email.com")
+                createUser("google_social_uid", SocialProvider.GOOGLE),
+                createUser("kakao_social_uid", SocialProvider.KAKAO)
             )
         )
-        expect("이메일을 통해 유저를 조회한다") {
-            val actual = userRepository.findByEmail("gildong@email.com")
+        expect("소셜 uid와 소셜 프로바이더를 통해 유저를 조회한다") {
+            val actual = userRepository.findBySocialUidAndSocialProvider("google_social_uid", SocialProvider.GOOGLE)
             actual.shouldNotBeNull()
         }
     }

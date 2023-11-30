@@ -1,21 +1,25 @@
 package org.info.lostark.auth.infra.oauth2.google.client
 
-import org.info.lostark.auth.command.domain.OAuth2User
-import org.info.lostark.auth.command.domain.OAuth2UserClient
+import org.info.lostark.auth.command.domain.OAuth2UserClientStrategy
+import org.info.lostark.auth.command.domain.OAuth2UserData
 import org.info.lostark.auth.infra.oauth2.google.GoogleOAuth2Properties
+import org.info.lostark.user.command.domain.SocialProvider
 import org.springframework.stereotype.Component
 import org.springframework.util.LinkedMultiValueMap
 import org.springframework.util.MultiValueMap
 
 @Component
-class GoogleOAuth2UserClient(
+class GoogleOAuth2UserClientStrategy(
     private val googleApiClient: GoogleApiClient,
     private val properties: GoogleOAuth2Properties
-) : OAuth2UserClient {
-    override fun fetch(code: String): OAuth2User {
+) : OAuth2UserClientStrategy {
+    override val support: SocialProvider
+        get() = SocialProvider.GOOGLE
+
+    override fun fetch(code: String): OAuth2UserData {
         val googleToken = googleApiClient.fetchToken(tokenRequestParams(code))
         val googleUserResponse = googleApiClient.fetchUser("Bearer ${googleToken.accessToken}")
-        return googleUserResponse.toEntity()
+        return googleUserResponse.toOAuth2UserData()
     }
 
     private fun tokenRequestParams(code: String): MultiValueMap<String, String> {

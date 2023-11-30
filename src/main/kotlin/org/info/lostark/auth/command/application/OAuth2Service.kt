@@ -1,55 +1,46 @@
 package org.info.lostark.auth.command.application
 
-import org.info.lostark.auth.command.application.dto.JwtTokenCommandResponse
 import org.info.lostark.auth.command.application.dto.OAuth2LoginCommand
-import org.info.lostark.auth.command.domain.*
-import org.info.lostark.common.security.JwtTokenProvider
-import org.info.lostark.user.command.domain.Password
+import org.info.lostark.auth.command.application.dto.TokenResponse
+import org.info.lostark.auth.command.domain.OAuth2AuthCodeUrlProviderContext
+import org.info.lostark.auth.command.domain.OAuth2UserClientContext
+import org.info.lostark.auth.command.domain.OAuth2UserData
+import org.info.lostark.user.command.domain.SocialProvider
 import org.info.lostark.user.command.domain.User
-import org.info.lostark.user.command.domain.UserInformation
 import org.info.lostark.user.command.domain.UserRepository
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
 class OAuth2Service(
-    private val oAuth2Resolver: OAuth2StrategyResolver,
-    private val oAuth2UserRepository: OAuth2UserRepository,
+    private val oAuth2UserClientContext: OAuth2UserClientContext,
+    private val oAuth2AuthCodeUrlProviderContext: OAuth2AuthCodeUrlProviderContext,
     private val userRepository: UserRepository,
-    private val jwtTokenProvider: JwtTokenProvider,
-    private val refreshTokenService: RefreshTokenService,
-    private val oAuth2AuthCodeUrlProviderContext: OAuth2AuthCodeUrlProviderContext
+    private val jwtProvider: JwtProvider,
+    private val refreshTokenService: RefreshTokenService
 ) {
     @Transactional
-    fun login(command: OAuth2LoginCommand): JwtTokenCommandResponse {
-        val fetchedOAuth2User = oAuth2Resolver
-            .resolve(command.socialProvider)
-            .getOAuth2User(command.code)
-        val oAuth2User = oAuth2UserRepository
-            .findByOAuth2Id(fetchedOAuth2User.oAuth2Id)
-            ?: oAuth2UserRepository.save(createUser(fetchedOAuth2User))
-
-        return generate(oAuth2User.user!!)
-    }
-
-    private fun createUser(oAuth2User: OAuth2User): OAuth2User {
-        val savedUser = userRepository.save(
-            User(
-                UserInformation(oAuth2User.nickname, oAuth2User.email),
-                Password(oAuth2User.oAuth2Id.providerUserId)
-            )
-        )
-        oAuth2User.linkUser(savedUser)
-        return oAuth2User
-    }
-
-    private fun generate(user: User): JwtTokenCommandResponse {
-        val token = jwtTokenProvider.createToken(user.email)
-        val refreshToken = refreshTokenService.create(user.id)
-        return JwtTokenCommandResponse(token, refreshToken)
+    fun login(command: OAuth2LoginCommand): TokenResponse {
+        val oAuth2UserData = oAuth2UserClientContext.getOAuth2UserData(command.socialProvider, command.code)
+        val user =
+            userRepository.findBySocialUidAndSocialProvider(oAuth2UserData.socialUid, oAuth2UserData.socialProvider)
+                ?: createUser(oAuth2UserData)
+        return tokenResponse(user)
     }
 
     fun getRedirectUrl(socialProvider: SocialProvider, state: String?): String {
         return oAuth2AuthCodeUrlProviderContext.getRedirectUrl(socialProvider, state)
+    }
+
+
+    private fun createUser(data: OAuth2UserData): User {
+        return userRepository.save(User(data.socialUid, data.socialProvider))
+    }
+
+    private fun tokenResponse(user: User): TokenResponse {
+        val accessToken = jwtProvider.generateAccessToken(user)
+        val refreshToken = jwtProvider.generateRefreshToken(user)
+        refreshTokenService.rotate(user.id, refreshToken)
+        return TokenResponse(accessToken, refreshToken)
     }
 }

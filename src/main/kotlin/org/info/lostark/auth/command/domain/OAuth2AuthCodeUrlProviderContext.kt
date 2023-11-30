@@ -1,5 +1,6 @@
 package org.info.lostark.auth.command.domain
 
+import org.info.lostark.user.command.domain.SocialProvider
 import org.springframework.stereotype.Component
 
 @Component

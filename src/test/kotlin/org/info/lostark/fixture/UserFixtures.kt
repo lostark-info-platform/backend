@@ -1,61 +1,32 @@
 package org.info.lostark.fixture
 
-import org.info.lostark.auth.command.application.dto.JwtTokenCommandResponse
-import org.info.lostark.auth.command.domain.OAuth2Id
-import org.info.lostark.auth.command.domain.OAuth2User
-import org.info.lostark.auth.command.domain.SocialProvider
-import org.info.lostark.user.command.domain.Password
+import org.info.lostark.auth.command.application.dto.TokenResponse
 import org.info.lostark.user.command.domain.RefreshToken
-import org.info.lostark.user.command.domain.RefreshTokenByUser
+import org.info.lostark.user.command.domain.SocialProvider
 import org.info.lostark.user.command.domain.User
-import java.util.*
 
-const val NAME = "홍길동"
-const val EMAIL = "test@email.com"
-val PASSWORD: Password = Password("password")
+const val SOCIAL_UID = "social_uid"
+val SOCIAL_PROVIDER = SocialProvider.GOOGLE
+const val JWT = "valid_jwt"
 
 fun createUser(
-    name: String = NAME,
-    email: String = EMAIL,
-    password: Password = PASSWORD,
+    socialUid: String = SOCIAL_UID,
+    socialProvider: SocialProvider = SOCIAL_PROVIDER,
     id: Long = 0L
 ): User {
-    return User(name, email, password, id)
+    return User(socialUid, socialProvider, id)
 }
 
 fun createRefreshToken(
-    id: String = UUID.randomUUID().toString(),
-    userId: Long = 0L
+    user: User,
+    jwt: String = JWT
 ): RefreshToken {
-    return RefreshToken(id, userId)
+    return RefreshToken(user, jwt)
 }
 
-fun createRefreshTokenByUser(
-    id: Long = 0L,
-    tokens: MutableList<String> = mutableListOf(UUID.randomUUID().toString())
-): RefreshTokenByUser {
-    return RefreshTokenByUser(id, tokens)
-}
-
-fun createJwtResponse(): JwtTokenCommandResponse {
-    return JwtTokenCommandResponse(
-        "valid_token",
+fun createJwtResponse(): TokenResponse {
+    return TokenResponse(
+        "access_token",
         "refresh_token"
     )
-}
-
-fun createOAuth2User(
-    providerUserId: String = "101010101010",
-    provider: SocialProvider = SocialProvider.KAKAO,
-    email: String = "email@gmail.com",
-    nickname: String = "nickname",
-    user: User? = null
-): OAuth2User {
-    val oAuth2User = OAuth2User(
-        oAuth2Id = OAuth2Id(providerUserId, provider),
-        email = email,
-        nickname = nickname
-    )
-    if (user != null) oAuth2User.linkUser(user)
-    return oAuth2User
 }
