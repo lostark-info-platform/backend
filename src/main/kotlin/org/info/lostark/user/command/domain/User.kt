@@ -21,8 +21,11 @@ class User(
 ) : BaseRootEntity<User>(id) {
 
     @Column
+    @Enumerated(STRING)
     val state: UserState = VALID
 
+    @Column
+    @Enumerated(STRING)
     val role: Role = Role.BASIC
 
     val authorities: Collection<GrantedAuthority>
