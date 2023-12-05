@@ -2,11 +2,11 @@ package org.info.lostark.auth.presentation
 
 import jakarta.servlet.http.HttpServletResponse
 import org.info.lostark.auth.command.application.OAuth2Service
-import org.info.lostark.auth.command.application.dto.JwtTokenCommandResponse
-import org.info.lostark.auth.command.domain.SocialProvider
+import org.info.lostark.auth.command.application.dto.TokenResponse
 import org.info.lostark.auth.presentation.dto.OAuth2LoginRequest
 import org.info.lostark.common.config.AppConfig
 import org.info.lostark.common.presentation.ApiResponse
+import org.info.lostark.user.command.domain.SocialProvider
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -36,7 +36,7 @@ class OAuth2RestController(
     }
 
     @PostMapping("/login")
-    fun login(@RequestBody request: OAuth2LoginRequest): ApiResponse<JwtTokenCommandResponse> {
+    fun login(@RequestBody request: OAuth2LoginRequest): ApiResponse<TokenResponse> {
         return ApiResponse.success(oAuth2Service.login(request.toCommand()))
     }
 }

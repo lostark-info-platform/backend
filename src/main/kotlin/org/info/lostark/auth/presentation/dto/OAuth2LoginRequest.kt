@@ -1,7 +1,7 @@
 package org.info.lostark.auth.presentation.dto
 
 import org.info.lostark.auth.command.application.dto.OAuth2LoginCommand
-import org.info.lostark.auth.command.domain.SocialProvider
+import org.info.lostark.user.command.domain.SocialProvider
 
 data class OAuth2LoginRequest(
     val provider: String,

@@ -1,8 +1,8 @@
 package org.info.lostark.auth.infra.oauth2.kakao.authcode
 
 import org.info.lostark.auth.command.domain.OAuth2AuthCodeUrlProviderStrategy
-import org.info.lostark.auth.command.domain.SocialProvider
 import org.info.lostark.auth.infra.oauth2.kakao.KakaoOAuth2Properties
+import org.info.lostark.user.command.domain.SocialProvider
 import org.springframework.stereotype.Component
 import org.springframework.web.util.UriComponentsBuilder
 

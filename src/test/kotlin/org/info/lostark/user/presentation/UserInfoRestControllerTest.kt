@@ -3,13 +3,14 @@ package org.info.lostark.user.presentation
 import org.info.lostark.fixture.createUser
 import org.info.lostark.support.RestControllerTest
 import org.info.lostark.support.bearer
+import org.info.lostark.support.security.WithMockCustomUser
 import org.info.lostark.user.query.dto.UserQueryResponse
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
-import org.springframework.http.HttpHeaders
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation
 import org.springframework.test.web.servlet.get
 
+@WithMockCustomUser
 @WebMvcTest(UserInfoRestController::class)
 class UserInfoRestControllerTest : RestControllerTest() {
     @Test
@@ -23,18 +24,6 @@ class UserInfoRestControllerTest : RestControllerTest() {
             content { success(response) }
         }.andDo {
             handle(MockMvcRestDocumentation.document("user-me-get"))
-        }
-    }
-
-    @Test
-    fun `유효하지 않은 토큰으로 개인정보 요청 시 401 Unauthorized 반환한다`() {
-        mockMvc.get("/api/users/me") {
-            header(HttpHeaders.AUTHORIZATION, "invalid_token")
-        }.andExpect {
-            status { isUnauthorized() }
-            content { error("로그인 정보가 정확하지 않습니다.") }
-        }.andDo {
-            handle(MockMvcRestDocumentation.document("user-me-get-unauthorized"))
         }
     }
 }

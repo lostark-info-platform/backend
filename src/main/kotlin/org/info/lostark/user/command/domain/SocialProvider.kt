@@ -1,4 +1,4 @@
-package org.info.lostark.auth.command.domain
+package org.info.lostark.user.command.domain
 
 enum class SocialProvider {
     KAKAO,

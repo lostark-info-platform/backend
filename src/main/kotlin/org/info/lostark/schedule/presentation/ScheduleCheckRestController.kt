@@ -1,9 +1,9 @@
 package org.info.lostark.schedule.presentation
 
-import org.info.lostark.common.security.LoginUser
 import org.info.lostark.schedule.command.application.ScheduleCheckService
 import org.info.lostark.user.command.domain.User
 import org.springframework.http.ResponseEntity
+import org.springframework.security.core.annotation.AuthenticationPrincipal
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -16,7 +16,7 @@ class ScheduleCheckRestController(
 ) {
     @PostMapping("/{scheduleId}/check")
     fun checkSchedule(
-        @LoginUser user: User,
+        @AuthenticationPrincipal user: User,
         @PathVariable scheduleId: Long,
     ): ResponseEntity<Unit> {
         scheduleCheckService.check(user.id, scheduleId)
@@ -25,8 +25,8 @@ class ScheduleCheckRestController(
 
     @PostMapping("/{scheduleId}/uncheck")
     fun uncheckSchedule(
-        @LoginUser user: User,
-        @PathVariable scheduleId: Long,
+        @AuthenticationPrincipal user: User,
+        @PathVariable scheduleId: Long
     ): ResponseEntity<Unit> {
         scheduleCheckService.uncheck(user.id, scheduleId)
         return ResponseEntity.ok().build()
