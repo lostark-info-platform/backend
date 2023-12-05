@@ -1,0 +1,22 @@
+[
+  {
+    "CategoryName": "string",
+    "ContentsName": "string",
+    "ContentsIcon": "string",
+    "MinItemLevel": 0,
+    "StartTimes": [
+      "2023-12-05T09:16:12.292Z"
+    ],
+    "Location": "string",
+    "RewardItems": [
+      {
+        "Name": "string",
+        "Icon": "string",
+        "Grade": "string",
+        "StartTimes": [
+          "2023-12-05T09:16:12.292Z"
+        ]
+      }
+    ]
+  }
+]

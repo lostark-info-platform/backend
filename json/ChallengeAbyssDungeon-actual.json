@@ -1,0 +1,98 @@
+[
+  {
+    "Name": "비틀린 군주의 회랑",
+    "Description": "무너진 질서 속의 몽환의 궁전.\r\n혼돈의 품에서 몽환은 송두리째 비틀리기 시작한다.",
+    "MinCharacterLevel": 50,
+    "MinItemLevel": 1250,
+    "AreaName": "몽환의 궁전",
+    "StartTime": "2023-11-29 06:00",
+    "EndTime": "2023-12-13 05:59",
+    "Image": "https://cdn-lostark.game.onstove.com/efui_iconatlas/epicgate_btnimg/epicgate_btnimg_1_1.png",
+    "RewardItems": [
+      {
+        "Name": "재련 재료",
+        "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_6_127.png",
+        "Grade": "영웅",
+        "StartTimes": null
+      },
+      {
+        "Name": "재련 보조 재료",
+        "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_6_127.png",
+        "Grade": "영웅",
+        "StartTimes": null
+      },
+      {
+        "Name": "전설 카드 팩 III",
+        "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_11_2.png",
+        "Grade": "전설",
+        "StartTimes": null
+      },
+      {
+        "Name": "도약의 전설 카드 선택 팩",
+        "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_11_2.png",
+        "Grade": "전설",
+        "StartTimes": null
+      },
+      {
+        "Name": "도전자의 카드 팩",
+        "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_11_3.png",
+        "Grade": "전설",
+        "StartTimes": null
+      },
+      {
+        "Name": "경험치 카드",
+        "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_10_225.png",
+        "Grade": "전설",
+        "StartTimes": null
+      }
+    ]
+  },
+  {
+    "Name": "몽환궁전 힐데브리뉴",
+    "Description": "무너진 질서 속의 몽환의 궁전.\r\n몽환궁전 힐데브리뉴가 깊은 심연 속에서 서서히 그 모습을 드러낸다.",
+    "MinCharacterLevel": 50,
+    "MinItemLevel": 1250,
+    "AreaName": "몽환의 궁전",
+    "StartTime": "2023-11-29 06:00",
+    "EndTime": "2023-12-13 05:59",
+    "Image": "https://cdn-lostark.game.onstove.com/efui_iconatlas/epicgate_btnimg/epicgate_btnimg_1_2.png",
+    "RewardItems": [
+      {
+        "Name": "재련 재료",
+        "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_6_127.png",
+        "Grade": "영웅",
+        "StartTimes": null
+      },
+      {
+        "Name": "재련 보조 재료",
+        "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_6_127.png",
+        "Grade": "영웅",
+        "StartTimes": null
+      },
+      {
+        "Name": "전설 카드 팩 III",
+        "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_11_2.png",
+        "Grade": "전설",
+        "StartTimes": null
+      },
+      {
+        "Name": "도약의 전설 카드 선택 팩",
+        "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_11_2.png",
+        "Grade": "전설",
+        "StartTimes": null
+      },
+      {
+        "Name": "도전자의 카드 팩",
+        "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_11_3.png",
+        "Grade": "전설",
+        "StartTimes": null
+      },
+      {
+        "Name": "경험치 카드",
+        "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_10_225.png",
+        "Grade": "전설",
+        "StartTimes": null
+      }
+    ]
+  }
+]

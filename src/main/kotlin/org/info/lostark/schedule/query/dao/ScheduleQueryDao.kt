@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional
 
 @Dao
 @Transactional(readOnly = true)
-class ScheduleQueryResponseDao(
+class ScheduleQueryDao(
     private val scheduleQueryDaoSupport: ScheduleQueryDaoSupport
 ) {
     fun findAllScheduleByUserId(userId: Long): List<ScheduleQueryResponse> {

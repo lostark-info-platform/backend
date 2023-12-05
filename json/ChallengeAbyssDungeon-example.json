@@ -1,0 +1,29 @@
+{
+  "Raids": [
+    {
+      "Name": "string",
+      "Description": "string",
+      "MinCharacterLevel": 0,
+      "MinItemLevel": 0,
+      "RequiredClearRaid": "string",
+      "StartTime": "string",
+      "EndTime": "string",
+      "Image": "string"
+    }
+  ],
+  "RewardItems": [
+    {
+      "ExpeditionItemLevel": 0,
+      "Items": [
+        {
+          "Name": "string",
+          "Icon": "string",
+          "Grade": "string",
+          "StartTimes": [
+            "2023-12-05T09:16:12.027Z"
+          ]
+        }
+      ]
+    }
+  ]
+}
