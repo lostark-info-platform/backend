@@ -4,9 +4,11 @@ import jakarta.persistence.CascadeType
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.OneToMany
+import jakarta.persistence.Table
 import org.info.lostark.common.domain.BaseEntity
 
 @Entity
+@Table(name = "challenge_abyss_dungeon")
 class ChallengeAbyssDungeon(
     @Column
     val name: String,

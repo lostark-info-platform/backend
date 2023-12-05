@@ -4,12 +4,14 @@ import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.EnumType.STRING
 import jakarta.persistence.Enumerated
+import jakarta.persistence.Table
 import org.info.lostark.common.domain.BaseRootEntity
 import org.info.lostark.user.command.domain.UserState.VALID
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 
 @Entity
+@Table(name = "user")
 class User(
     @Column
     val socialUid: String,

@@ -4,9 +4,10 @@ import jakarta.persistence.*
 import jakarta.persistence.GenerationType.IDENTITY
 
 @Entity
+@Table(name = "refresh_token")
 class RefreshToken(
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userId")
     val user: User,
 
     @Column

@@ -4,6 +4,7 @@ import jakarta.persistence.*
 import org.info.lostark.common.domain.BaseEntity
 
 @Entity
+@Table(name = "contents_calendar")
 class ContentsCalendar(
     @Column
     val categoryName: String,

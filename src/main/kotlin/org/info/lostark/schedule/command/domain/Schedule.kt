@@ -8,9 +8,10 @@ import org.info.lostark.user.command.domain.User
 import java.time.LocalDateTime
 
 @Entity
+@Table(name = "schedule")
 class Schedule private constructor(
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "userId")
     var user: User,
     id: Long = 0
 ) : BaseRootEntity<Schedule>(id) {
