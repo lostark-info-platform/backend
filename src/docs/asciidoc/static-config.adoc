@@ -1,0 +1,5 @@
+= 설정 관련 API
+
+== 소셜로그인 Redirect client base url 변경
+
+operation::change-client-base-url-post[snippets='http-request,http-response']
