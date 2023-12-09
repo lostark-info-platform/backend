@@ -15,7 +15,7 @@ import org.info.lostark.support.bearer
 import org.info.lostark.support.security.WithMockCustomUser
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
-import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation
+import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document
 import org.springframework.test.web.servlet.delete
 import org.springframework.test.web.servlet.get
 import org.springframework.test.web.servlet.post
@@ -47,7 +47,7 @@ class ScheduleRestControllerTest : RestControllerTest() {
             status { isOk() }
             content { success(response) }
         }.andDo {
-            handle(MockMvcRestDocumentation.document("schedule-me-list-get"))
+            handle(document("schedule-me-list-get"))
         }
     }
 
@@ -62,7 +62,7 @@ class ScheduleRestControllerTest : RestControllerTest() {
         }.andExpect {
             status { isOk() }
         }.andDo {
-            handle(MockMvcRestDocumentation.document("schedule-post"))
+            handle(document("schedule-post"))
         }
     }
 
@@ -77,7 +77,7 @@ class ScheduleRestControllerTest : RestControllerTest() {
         }.andExpect {
             status { isOk() }
         }.andDo {
-            handle(MockMvcRestDocumentation.document("schedule-update-post"))
+            handle(document("schedule-update-post"))
         }
     }
 
@@ -90,7 +90,7 @@ class ScheduleRestControllerTest : RestControllerTest() {
         }.andExpect {
             status { isOk() }
         }.andDo {
-            handle(MockMvcRestDocumentation.document("schedule-delete"))
+            handle(document("schedule-delete"))
         }
     }
 }

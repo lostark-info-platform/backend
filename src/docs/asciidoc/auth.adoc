@@ -1,0 +1,6 @@
+= 인증 관련 API
+
+== 리프레시 엑세스토큰
+
+operation::auth-refresh-post[snippets='http-request,http-response']
+

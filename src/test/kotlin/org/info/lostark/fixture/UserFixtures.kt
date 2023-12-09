@@ -24,7 +24,7 @@ fun createRefreshToken(
     return RefreshToken(user, jwt)
 }
 
-fun createJwtResponse(): TokenResponse {
+fun createTokenResponse(): TokenResponse {
     return TokenResponse(
         "access_token",
         "refresh_token"

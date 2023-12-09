@@ -5,8 +5,8 @@ import io.mockk.every
 import org.info.lostark.auth.command.application.OAuth2Service
 import org.info.lostark.auth.presentation.dto.OAuth2LoginRequest
 import org.info.lostark.common.application.StaticConfigService
-import org.info.lostark.fixture.createJwtResponse
 import org.info.lostark.fixture.createStaticConfig
+import org.info.lostark.fixture.createTokenResponse
 import org.info.lostark.support.RestControllerTest
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
@@ -54,7 +54,7 @@ class OAuth2RestControllerTest : RestControllerTest() {
 
     @Test
     fun `프로바이더와 액세스토큰이 유요한 경우 토큰을 응답한다`() {
-        val response = createJwtResponse()
+        val response = createTokenResponse()
         val request = OAuth2LoginRequest("kakao", "authorization_code")
         every { oAuth2Service.login(request.toCommand()) } returns response
         mockMvc.post("/oauth2/login") {

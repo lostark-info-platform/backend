@@ -6,7 +6,7 @@
 
 == Lostark-info-platform
 
-include::user.adoc[]
+include::auth.adoc[]
 include::oauth2.adoc[]
 include::schedule.adoc[]
 include::static-config.adoc[]
