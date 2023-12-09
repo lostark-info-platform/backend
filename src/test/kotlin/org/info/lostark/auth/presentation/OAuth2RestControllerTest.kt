@@ -4,8 +4,9 @@ import com.ninjasquad.springmockk.MockkBean
 import io.mockk.every
 import org.info.lostark.auth.command.application.OAuth2Service
 import org.info.lostark.auth.presentation.dto.OAuth2LoginRequest
-import org.info.lostark.common.config.AppConfig
+import org.info.lostark.common.application.StaticConfigService
 import org.info.lostark.fixture.createJwtResponse
+import org.info.lostark.fixture.createStaticConfig
 import org.info.lostark.support.RestControllerTest
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
@@ -19,7 +20,7 @@ class OAuth2RestControllerTest : RestControllerTest() {
     private lateinit var oAuth2Service: OAuth2Service
 
     @MockkBean
-    private lateinit var appConfig: AppConfig
+    private lateinit var staticConfigService: StaticConfigService
 
     @Test
     fun `프로바이더에서 제공하는 소셜 로그인 뷰로 redirect한다`() {
@@ -35,7 +36,7 @@ class OAuth2RestControllerTest : RestControllerTest() {
 
     @Test
     fun `소셜 로그인이 성공하면 서버 콜백 api를 호출하고 성공 시 클라이언트로 코드와함께 리다이렉트한다`() {
-        every { appConfig.clientRedirectBaseUrl } returns "https://localhost:3000"
+        every { staticConfigService.get() } returns createStaticConfig()
 
         mockMvc.get(
             "/oauth2/callback/{providerString}?code={code}&state={state}",

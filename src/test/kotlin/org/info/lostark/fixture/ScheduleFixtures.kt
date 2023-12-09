@@ -1,6 +1,5 @@
 package org.info.lostark.fixture
 
-import java.time.LocalDateTime
 import org.info.lostark.schedule.command.domain.Schedule
 import org.info.lostark.schedule.command.domain.ScheduleState
 import org.info.lostark.schedule.command.domain.ScheduleState.TODO
@@ -8,6 +7,7 @@ import org.info.lostark.schedule.presentation.dto.ScheduleRegisterRequest
 import org.info.lostark.schedule.presentation.dto.ScheduleUpdateRequest
 import org.info.lostark.schedule.query.dto.ScheduleQueryResponse
 import org.info.lostark.user.command.domain.User
+import java.time.LocalDateTime
 
 private const val SCHEDULE_TITLE = "할일 제목"
 private const val SCHEDULE_CATEGORY = "장비강화"

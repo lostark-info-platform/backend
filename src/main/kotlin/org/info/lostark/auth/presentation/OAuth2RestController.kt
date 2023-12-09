@@ -4,7 +4,7 @@ import jakarta.servlet.http.HttpServletResponse
 import org.info.lostark.auth.command.application.OAuth2Service
 import org.info.lostark.auth.command.application.dto.TokenResponse
 import org.info.lostark.auth.presentation.dto.OAuth2LoginRequest
-import org.info.lostark.common.config.AppConfig
+import org.info.lostark.common.application.StaticConfigService
 import org.info.lostark.common.presentation.ApiResponse
 import org.info.lostark.user.command.domain.SocialProvider
 import org.springframework.web.bind.annotation.*
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/oauth2")
 class OAuth2RestController(
     private val oAuth2Service: OAuth2Service,
-    private val appConfig: AppConfig
+    private val staticConfigService: StaticConfigService
 ) {
     @GetMapping("/code/{providerString}")
     fun redirectGetAuthCodePage(
@@ -41,5 +41,5 @@ class OAuth2RestController(
     }
 
     private fun getTargetUrl(code: String, state: String?, providerString: String) =
-        "${appConfig.clientRedirectBaseUrl}?code=$code&state=${state ?: ""}&provider=$providerString"
+        "${staticConfigService.get().clientBaseUrl}?code=$code&state=${state ?: ""}&provider=$providerString"
 }
