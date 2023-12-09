@@ -4,3 +4,6 @@
 
 operation::auth-refresh-post[snippets='http-request,http-response']
 
+== 로그아웃
+
+operation::auth-logout-post[snippets='http-request,http-response']

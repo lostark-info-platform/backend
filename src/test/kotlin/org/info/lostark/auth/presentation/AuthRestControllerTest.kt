@@ -1,11 +1,14 @@
 package org.info.lostark.auth.presentation
 
 import com.ninjasquad.springmockk.MockkBean
+import io.mockk.Runs
 import io.mockk.every
+import io.mockk.just
 import org.info.lostark.auth.command.application.AuthService
 import org.info.lostark.auth.presentation.dto.TokenRefreshRequest
 import org.info.lostark.fixture.createTokenResponse
 import org.info.lostark.support.RestControllerTest
+import org.info.lostark.support.security.WithMockCustomUser
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document
@@ -28,5 +31,18 @@ class AuthRestControllerTest : RestControllerTest() {
         }.andDo {
             handle(document("auth-refresh-post"))
         }
+    }
+
+    @Test
+    @WithMockCustomUser
+    fun `액세스토큰을 통해 로그아웃 한다`() {
+        every { authService.logout(any()) } just Runs
+
+        mockMvc.post("/api/auth/logout")
+            .andExpect {
+                status { isOk() }
+            }.andDo {
+                handle(document("auth-logout-post"))
+            }
     }
 }
