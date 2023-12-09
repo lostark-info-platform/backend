@@ -32,11 +32,14 @@ class OAuth2RestController(
         state: String?,
         response: HttpServletResponse
     ) {
-        response.sendRedirect("${appConfig.clientRedirectBaseUrl}?code=$code&state=${state ?: ""}")
+        response.sendRedirect(getTargetUrl(code, state, providerString))
     }
 
     @PostMapping("/login")
     fun login(@RequestBody request: OAuth2LoginRequest): ApiResponse<TokenResponse> {
         return ApiResponse.success(oAuth2Service.login(request.toCommand()))
     }
+
+    private fun getTargetUrl(code: String, state: String?, providerString: String) =
+        "${appConfig.clientRedirectBaseUrl}?code=$code&state=${state ?: ""}&provider=$providerString"
 }
