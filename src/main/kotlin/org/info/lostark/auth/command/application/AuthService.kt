@@ -6,11 +6,11 @@ import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
+@Transactional
 class AuthService(
     private val refreshTokenService: RefreshTokenService,
     private val jwtProvider: JwtProvider
 ) {
-    @Transactional
     fun generateTokenByRefreshToken(refreshToken: String): TokenResponse {
         if (!jwtProvider.isValidToken(refreshToken)) {
             throw IllegalArgumentException()
@@ -18,6 +18,10 @@ class AuthService(
         val user = findUserByRefreshToken(refreshToken)
 
         return tokenResponse(user)
+    }
+
+    fun logout(userId: Long) {
+        refreshTokenService.deleteAll(userId)
     }
 
     private fun findUserByRefreshToken(refreshToken: String): User {
