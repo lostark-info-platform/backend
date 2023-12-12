@@ -3,6 +3,7 @@ package org.info.lostark.officialschedule.infra.client
 import org.info.lostark.officialschedule.command.dommain.ChallengeAbyssDungeon
 import org.info.lostark.officialschedule.command.dommain.ContentsCalendar
 import org.info.lostark.officialschedule.command.dommain.OfficialScheduleGetter
+import org.info.lostark.officialschedule.command.dommain.RootRaid
 import org.springframework.stereotype.Component
 
 @Component
@@ -20,6 +21,13 @@ class OfficialScheduleGetterImpl(
             .fetchAllContentsCalendar(bearer(accessToken))
             .map { it.toEntity() }
     }
+
+    override fun fetchRootGuardianRaids(accessToken: String): RootRaid {
+        return officialScheduleClient
+            .fetchRootGuardianRaids(bearer(accessToken))
+            .toEntity()
+    }
+
 
     private fun bearer(accessToken: String) = "Bearer $accessToken"
 }

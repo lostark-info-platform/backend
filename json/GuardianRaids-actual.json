@@ -1,0 +1,457 @@
+{
+  "Raids": [
+    {
+      "Name": "칼벤투스",
+      "Description": "암흑을 부리는 칼벤투스의 매서운 광풍은, 자신을 제외한 모든 존재를 부정하며 일대를 뒤덮는다.",
+      "MinCharacterLevel": 50,
+      "MinItemLevel": 1250,
+      "StartTime": "2023-11-22 06:00",
+      "EndTime": "2023-12-13 05:59",
+      "Image": "https://cdn-lostark.game.onstove.com/efui_iconatlas/monster_icon_info/monster_icon_info_13.png"
+    },
+    {
+      "Name": "이그렉시온",
+      "Description": "사슬전쟁 때 대지를 붉게 물들인 파멸의 포식자 이그렉시온.\r\n거친 포효와 함께 검붉은 대지를 뚫고 나온 그는, 적으로 인식된 모든 것을 파멸시키기 위해 움직이기 시작했다. ",
+      "MinCharacterLevel": 50,
+      "MinItemLevel": 1250,
+      "StartTime": "2023-11-29 06:00",
+      "EndTime": "2023-12-20 05:59",
+      "Image": "https://cdn-lostark.game.onstove.com/efui_iconatlas/monster_icon_info/monster_icon_info_22.png"
+    },
+    {
+      "Name": "나크라세나",
+      "Description": "거대한 몸집, 단단하고 강력한 집게와 거대 가시를 지닌 사막의 별 나크라세나는 보는 사람들을 압도할 만한 위용을 자랑한다. ",
+      "MinCharacterLevel": 50,
+      "MinItemLevel": 1250,
+      "StartTime": "2023-12-06 06:00",
+      "EndTime": "2023-12-27 05:59",
+      "Image": "https://cdn-lostark.game.onstove.com/efui_iconatlas/monster_icon_info/monster_icon_info_6.png"
+    }
+  ],
+  "RewardItems": [
+    {
+      "ExpeditionItemLevel": 1250,
+      "Items": [
+        {
+          "Name": "빛나는 구도자의 장신구 상자",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_2_7.png",
+          "Grade": "전설",
+          "StartTimes": null
+        },
+        {
+          "Name": "강력한 비상의 돌 상자",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_4_180.png",
+          "Grade": "전설",
+          "StartTimes": null
+        },
+        {
+          "Name": "파괴석 결정",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_6_105.png",
+          "Grade": "일반",
+          "StartTimes": null
+        },
+        {
+          "Name": "수호석 결정",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_6_104.png",
+          "Grade": "일반",
+          "StartTimes": null
+        },
+        {
+          "Name": "위대한 명예의 돌파석",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_7_156.png",
+          "Grade": "희귀",
+          "StartTimes": null
+        },
+        {
+          "Name": "생명의 각인서 선택 상자",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/all_quest/all_quest_02_227.png",
+          "Grade": "희귀",
+          "StartTimes": null
+        },
+        {
+          "Name": "직업 각인서",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_9_24.png",
+          "Grade": "전설",
+          "StartTimes": null
+        },
+        {
+          "Name": "현자의 가루 상자",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/all_quest/all_quest_02_226.png",
+          "Grade": "영웅",
+          "StartTimes": null
+        }
+      ]
+    },
+    {
+      "ExpeditionItemLevel": 1415,
+      "Items": [
+        {
+          "Name": "유물 장신구 선택 상자 I",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_2_220.png",
+          "Grade": "유물",
+          "StartTimes": null
+        },
+        {
+          "Name": "유물 어빌리티 스톤 선택 상자",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_2_10.png",
+          "Grade": "유물",
+          "StartTimes": null
+        },
+        {
+          "Name": "파괴석 결정",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_6_105.png",
+          "Grade": "일반",
+          "StartTimes": null
+        },
+        {
+          "Name": "수호석 결정",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_6_104.png",
+          "Grade": "일반",
+          "StartTimes": null
+        },
+        {
+          "Name": "위대한 명예의 돌파석",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_7_156.png",
+          "Grade": "희귀",
+          "StartTimes": null
+        },
+        {
+          "Name": "생명의 각인서 선택 상자",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/all_quest/all_quest_02_227.png",
+          "Grade": "희귀",
+          "StartTimes": null
+        },
+        {
+          "Name": "직업 각인서",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_9_24.png",
+          "Grade": "전설",
+          "StartTimes": null
+        },
+        {
+          "Name": "현자의 가루 상자",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/all_quest/all_quest_02_226.png",
+          "Grade": "영웅",
+          "StartTimes": null
+        }
+      ]
+    },
+    {
+      "ExpeditionItemLevel": 1460,
+      "Items": [
+        {
+          "Name": "유물 장신구 선택 상자 II",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_2_220.png",
+          "Grade": "유물",
+          "StartTimes": null
+        },
+        {
+          "Name": "유물 어빌리티 스톤 선택 상자",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_2_10.png",
+          "Grade": "유물",
+          "StartTimes": null
+        },
+        {
+          "Name": "파괴석 결정",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_6_105.png",
+          "Grade": "일반",
+          "StartTimes": null
+        },
+        {
+          "Name": "수호석 결정",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_6_104.png",
+          "Grade": "일반",
+          "StartTimes": null
+        },
+        {
+          "Name": "위대한 명예의 돌파석",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_7_156.png",
+          "Grade": "희귀",
+          "StartTimes": null
+        },
+        {
+          "Name": "생명의 각인서 선택 상자",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/all_quest/all_quest_02_227.png",
+          "Grade": "희귀",
+          "StartTimes": null
+        },
+        {
+          "Name": "직업 각인서",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_9_24.png",
+          "Grade": "전설",
+          "StartTimes": null
+        },
+        {
+          "Name": "현자의 가루 상자",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/all_quest/all_quest_02_226.png",
+          "Grade": "영웅",
+          "StartTimes": null
+        }
+      ]
+    },
+    {
+      "ExpeditionItemLevel": 1490,
+      "Items": [
+        {
+          "Name": "유물 장신구 선택 상자 III",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_2_220.png",
+          "Grade": "유물",
+          "StartTimes": null
+        },
+        {
+          "Name": "유물 어빌리티 스톤 선택 상자",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_2_10.png",
+          "Grade": "유물",
+          "StartTimes": null
+        },
+        {
+          "Name": "파괴강석",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_10_58.png",
+          "Grade": "일반",
+          "StartTimes": null
+        },
+        {
+          "Name": "수호강석",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_10_59.png",
+          "Grade": "일반",
+          "StartTimes": null
+        },
+        {
+          "Name": "경이로운 명예의 돌파석",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_7_157.png",
+          "Grade": "희귀",
+          "StartTimes": null
+        },
+        {
+          "Name": "생명의 각인서 선택 상자",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/all_quest/all_quest_02_227.png",
+          "Grade": "희귀",
+          "StartTimes": null
+        },
+        {
+          "Name": "직업 각인서",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_9_24.png",
+          "Grade": "전설",
+          "StartTimes": null
+        },
+        {
+          "Name": "현자의 가루 상자",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/all_quest/all_quest_02_226.png",
+          "Grade": "영웅",
+          "StartTimes": null
+        }
+      ]
+    },
+    {
+      "ExpeditionItemLevel": 1540,
+      "Items": [
+        {
+          "Name": "고대 장신구 선택 상자 I",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_2_220.png",
+          "Grade": "고대",
+          "StartTimes": null
+        },
+        {
+          "Name": "유물 어빌리티 스톤 선택 상자",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_2_10.png",
+          "Grade": "유물",
+          "StartTimes": null
+        },
+        {
+          "Name": "파괴강석",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_10_58.png",
+          "Grade": "일반",
+          "StartTimes": null
+        },
+        {
+          "Name": "수호강석",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_10_59.png",
+          "Grade": "일반",
+          "StartTimes": null
+        },
+        {
+          "Name": "경이로운 명예의 돌파석",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_7_157.png",
+          "Grade": "희귀",
+          "StartTimes": null
+        },
+        {
+          "Name": "생명의 각인서 선택 상자",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/all_quest/all_quest_02_227.png",
+          "Grade": "희귀",
+          "StartTimes": null
+        },
+        {
+          "Name": "직업 각인서",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_9_24.png",
+          "Grade": "전설",
+          "StartTimes": null
+        },
+        {
+          "Name": "현자의 가루 상자",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/all_quest/all_quest_02_226.png",
+          "Grade": "영웅",
+          "StartTimes": null
+        }
+      ]
+    },
+    {
+      "ExpeditionItemLevel": 1580,
+      "Items": [
+        {
+          "Name": "고대 장신구 선택 상자 II",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_2_220.png",
+          "Grade": "고대",
+          "StartTimes": null
+        },
+        {
+          "Name": "유물 어빌리티 스톤 선택 상자",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_2_10.png",
+          "Grade": "유물",
+          "StartTimes": null
+        },
+        {
+          "Name": "정제된 파괴강석",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_11_15.png",
+          "Grade": "일반",
+          "StartTimes": null
+        },
+        {
+          "Name": "정제된 수호강석",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_11_16.png",
+          "Grade": "일반",
+          "StartTimes": null
+        },
+        {
+          "Name": "찬란한 명예의 돌파석",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_11_17.png",
+          "Grade": "희귀",
+          "StartTimes": null
+        },
+        {
+          "Name": "생명의 각인서 선택 상자",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/all_quest/all_quest_02_227.png",
+          "Grade": "희귀",
+          "StartTimes": null
+        },
+        {
+          "Name": "직업 각인서",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_9_24.png",
+          "Grade": "전설",
+          "StartTimes": null
+        },
+        {
+          "Name": "현자의 가루 상자",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/all_quest/all_quest_02_226.png",
+          "Grade": "영웅",
+          "StartTimes": null
+        }
+      ]
+    },
+    {
+      "ExpeditionItemLevel": 1610,
+      "Items": [
+        {
+          "Name": "고대 장신구 선택 상자 II",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_2_220.png",
+          "Grade": "고대",
+          "StartTimes": null
+        },
+        {
+          "Name": "유물 어빌리티 스톤 선택 상자",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_2_10.png",
+          "Grade": "유물",
+          "StartTimes": null
+        },
+        {
+          "Name": "정제된 파괴강석",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_11_15.png",
+          "Grade": "일반",
+          "StartTimes": null
+        },
+        {
+          "Name": "정제된 수호강석",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_11_16.png",
+          "Grade": "일반",
+          "StartTimes": null
+        },
+        {
+          "Name": "찬란한 명예의 돌파석",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_11_17.png",
+          "Grade": "희귀",
+          "StartTimes": null
+        },
+        {
+          "Name": "생명의 각인서 선택 상자",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/all_quest/all_quest_02_227.png",
+          "Grade": "희귀",
+          "StartTimes": null
+        },
+        {
+          "Name": "직업 각인서",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_9_24.png",
+          "Grade": "전설",
+          "StartTimes": null
+        },
+        {
+          "Name": "현자의 가루 상자",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/all_quest/all_quest_02_226.png",
+          "Grade": "영웅",
+          "StartTimes": null
+        }
+      ]
+    },
+    {
+      "ExpeditionItemLevel": 1630,
+      "Items": [
+        {
+          "Name": "고대 장신구 선택 상자 II",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_2_220.png",
+          "Grade": "고대",
+          "StartTimes": null
+        },
+        {
+          "Name": "유물 어빌리티 스톤 선택 상자",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_2_10.png",
+          "Grade": "유물",
+          "StartTimes": null
+        },
+        {
+          "Name": "정제된 파괴강석",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_11_15.png",
+          "Grade": "일반",
+          "StartTimes": null
+        },
+        {
+          "Name": "정제된 수호강석",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_11_16.png",
+          "Grade": "일반",
+          "StartTimes": null
+        },
+        {
+          "Name": "찬란한 명예의 돌파석",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_11_17.png",
+          "Grade": "희귀",
+          "StartTimes": null
+        },
+        {
+          "Name": "생명의 각인서 선택 상자",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/all_quest/all_quest_02_227.png",
+          "Grade": "희귀",
+          "StartTimes": null
+        },
+        {
+          "Name": "직업 각인서",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_9_24.png",
+          "Grade": "전설",
+          "StartTimes": null
+        },
+        {
+          "Name": "현자의 가루 상자",
+          "Icon": "https://cdn-lostark.game.onstove.com/efui_iconatlas/all_quest/all_quest_02_226.png",
+          "Grade": "영웅",
+          "StartTimes": null
+        }
+      ]
+    }
+  ]
+}

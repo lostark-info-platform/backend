@@ -20,8 +20,14 @@ class OfficialScheduleDataController(
     }
 
     @PostMapping("/contents")
-    fun contents(@RequestBody request: OfficialScheduleStoreRequest): ApiResponse<Any> {
+    fun storeContents(@RequestBody request: OfficialScheduleStoreRequest): ApiResponse<Any> {
         officialScheduleService.storeContentsCalendar(request.accessToken)
+        return ApiResponse.success(null)
+    }
+
+    @PostMapping("/raids")
+    fun storeRaids(@RequestBody request: OfficialScheduleStoreRequest): ApiResponse<Any> {
+        officialScheduleService.storeGuardianRaids(request.accessToken)
         return ApiResponse.success(null)
     }
 }
