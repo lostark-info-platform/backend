@@ -2,6 +2,7 @@ package org.info.lostark.officialschedule.infra.dto
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies.UpperCamelCaseStrategy
 import com.fasterxml.jackson.databind.annotation.JsonNaming
+import org.info.lostark.common.util.convertStringToDateTime
 import org.info.lostark.officialschedule.command.dommain.ChallengeAbyssDungeon
 
 @JsonNaming(UpperCamelCaseStrategy::class)
@@ -23,8 +24,8 @@ data class ChallengeAbyssDungeonResult(
             minCharacterLevel,
             minItemLevel,
             areaName,
-            startTime,
-            endTime,
+            convertStringToDateTime(startTime),
+            convertStringToDateTime(endTime),
             image,
             rewardItems.map { it.toEntity() }.toMutableList()
         )

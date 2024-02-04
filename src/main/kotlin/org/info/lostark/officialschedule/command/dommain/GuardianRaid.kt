@@ -4,6 +4,7 @@ import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.Table
 import org.info.lostark.common.domain.BaseEntity
+import java.time.LocalDateTime
 
 @Entity
 @Table(name = "guardian_raid")
@@ -21,10 +22,10 @@ class GuardianRaid(
     val minItemLevel: Int,
 
     @Column
-    val startTime: String,
+    val startTime: LocalDateTime,
 
     @Column
-    val endTime: String,
+    val endTime: LocalDateTime,
 
     @Column
     val image: String,

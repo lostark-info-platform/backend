@@ -1,6 +1,7 @@
 package org.info.lostark.officialschedule.query.dto
 
 import org.info.lostark.officialschedule.command.dommain.ChallengeAbyssDungeon
+import java.time.LocalDateTime
 
 data class ChallengeAbyssDungeonResponse(
     val name: String,
@@ -8,8 +9,8 @@ data class ChallengeAbyssDungeonResponse(
     val minCharacterLevel: Int,
     val minItemLevel: Int,
     val areaName: String,
-    val startTime: String,
-    val endTime: String,
+    val startTime: LocalDateTime,
+    val endTime: LocalDateTime,
     val image: String,
     val rewardItems: List<RewardItemResponse>,
 ) {

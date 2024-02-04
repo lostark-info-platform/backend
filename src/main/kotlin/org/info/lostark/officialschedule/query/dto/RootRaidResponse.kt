@@ -3,6 +3,7 @@ package org.info.lostark.officialschedule.query.dto
 import org.info.lostark.officialschedule.command.dommain.GuardianRaid
 import org.info.lostark.officialschedule.command.dommain.GuardianRaidRewardItem
 import org.info.lostark.officialschedule.command.dommain.RootRaid
+import java.time.LocalDateTime
 
 data class RootRaidResponse(
     val raids: List<GuardianRaidResponse>,
@@ -19,8 +20,8 @@ data class GuardianRaidResponse(
     val description: String,
     val minCharacterLevel: Int,
     val minItemLevel: Int,
-    val startTime: String,
-    val endTime: String,
+    val startTime: LocalDateTime,
+    val endTime: LocalDateTime,
     val image: String,
 ) {
     constructor(raid: GuardianRaid) : this(

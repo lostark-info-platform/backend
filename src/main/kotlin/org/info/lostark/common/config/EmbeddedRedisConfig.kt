@@ -2,6 +2,7 @@ package org.info.lostark.common.config
 
 import jakarta.annotation.PostConstruct
 import jakarta.annotation.PreDestroy
+import org.slf4j.LoggerFactory
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Profile
 import redis.embedded.RedisServer
@@ -15,11 +16,17 @@ class EmbeddedRedisConfig(
 ) {
     lateinit var redisServer: RedisServer
 
+    private val logger = LoggerFactory.getLogger(this::class.java)
+
     @PostConstruct
     fun redisServer() {
         val port = if (isRedisRunning()) findAvailablePort() else properties.port
         redisServer = RedisServer(port)
-        redisServer.start()
+        try {
+            redisServer.start()
+        } catch (e: Exception) {
+            logger.warn("redis start error", e)
+        }
     }
 
     @PreDestroy

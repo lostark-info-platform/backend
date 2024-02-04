@@ -9,5 +9,6 @@
 include::auth.adoc[]
 include::oauth2.adoc[]
 include::user.adoc[]
+include::official.adoc[]
 include::schedule.adoc[]
 include::static-config.adoc[]
