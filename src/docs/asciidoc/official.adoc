@@ -1,0 +1,5 @@
+= 오피셜 스케줄 관련 API
+
+== 오피셜 스케줄 요약 조회
+
+operation::official-summary-get[snippets='http-request,http-response']

@@ -1,11 +1,8 @@
 package org.info.lostark.officialschedule.command.dommain
 
-import jakarta.persistence.CascadeType
-import jakarta.persistence.Column
-import jakarta.persistence.Entity
-import jakarta.persistence.OneToMany
-import jakarta.persistence.Table
+import jakarta.persistence.*
 import org.info.lostark.common.domain.BaseEntity
+import java.time.LocalDateTime
 
 @Entity
 @Table(name = "challenge_abyss_dungeon")
@@ -26,10 +23,10 @@ class ChallengeAbyssDungeon(
     val areaName: String,
 
     @Column
-    val startTime: String,
+    val startTime: LocalDateTime,
 
     @Column
-    val endTime: String,
+    val endTime: LocalDateTime,
 
     @Column
     val image: String,

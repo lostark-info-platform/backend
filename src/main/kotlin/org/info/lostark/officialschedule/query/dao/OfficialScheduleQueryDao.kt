@@ -1,6 +1,7 @@
 package org.info.lostark.officialschedule.query.dao
 
 import org.info.lostark.common.dao.Dao
+import org.info.lostark.officialschedule.command.dommain.ContentsCalendarPrimaryCategory.Companion.CONTENTS_CALENDAR_PRIMARY_CATEGORIES
 import org.info.lostark.officialschedule.query.dao.support.ChallengeAbyssDungeonDaoSupport
 import org.info.lostark.officialschedule.query.dao.support.ContentsCalendarDaoSupport
 import org.info.lostark.officialschedule.query.dao.support.RootRaidDaoSupport
@@ -16,19 +17,17 @@ class OfficialScheduleQueryDao(
     private val contentsCalendarDaoSupport: ContentsCalendarDaoSupport,
     private val rootRaidDaoSupport: RootRaidDaoSupport
 ) {
-    fun findAllChallengeAbyssDungeon(): List<ChallengeAbyssDungeonResponse> {
-        return challengeAbyssDungeonDaoSupport
-            .findAll()
-            .map { ChallengeAbyssDungeonResponse(it) }
-    }
-
-    fun findAllContentsCalendar(): List<ContentsCalendarResponse> {
-        return contentsCalendarDaoSupport
-            .findAll()
+    fun findSummaryContentsCalendar(): List<ContentsCalendarResponse> {
+        return contentsCalendarDaoSupport.findAllByCategoryNameIn(CONTENTS_CALENDAR_PRIMARY_CATEGORIES)
             .map { ContentsCalendarResponse(it) }
     }
 
-    fun findRootRaid(): RootRaidResponse {
+    fun findSummaryAbyssDungeon(): List<ChallengeAbyssDungeonResponse> {
+        return challengeAbyssDungeonDaoSupport.findAll()
+            .map { ChallengeAbyssDungeonResponse(it) }
+    }
+
+    fun findSummaryGuardian(): RootRaidResponse {
         return rootRaidDaoSupport.findAll()
             .last()
             .let { RootRaidResponse(it) }
