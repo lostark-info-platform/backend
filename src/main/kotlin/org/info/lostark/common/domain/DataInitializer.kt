@@ -6,9 +6,10 @@ import org.info.lostark.officialschedule.command.dommain.ContentsCalendarReposit
 import org.info.lostark.officialschedule.command.dommain.OfficialScheduleGetter
 import org.info.lostark.officialschedule.command.dommain.RootRaidRepository
 import org.springframework.boot.CommandLineRunner
+import org.springframework.stereotype.Component
 
 //@Profile("!test && !local")
-//@Component
+@Component
 class DataInitializer(
     private val officialScheduleGetter: OfficialScheduleGetter,
     private val smileGateProperties: SmileGateProperties,
