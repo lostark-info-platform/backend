@@ -17,12 +17,12 @@ class OfficialScheduleQueryDao(
     private val contentsCalendarDaoSupport: ContentsCalendarDaoSupport,
     private val rootRaidDaoSupport: RootRaidDaoSupport
 ) {
-    fun findSummaryContentsCalendar(): List<ContentsCalendarResponse> {
+    fun findAllContentsCalendar(): List<ContentsCalendarResponse> {
         return contentsCalendarDaoSupport.findAllByCategoryNameIn(CONTENTS_CALENDAR_PRIMARY_CATEGORIES)
             .map { ContentsCalendarResponse(it) }
     }
 
-    fun findSummaryAbyssDungeon(): List<ChallengeAbyssDungeonResponse> {
+    fun findAllAbyssDungeon(): List<ChallengeAbyssDungeonResponse> {
         return challengeAbyssDungeonDaoSupport.findAll()
             .map { ChallengeAbyssDungeonResponse(it) }
     }
@@ -32,4 +32,5 @@ class OfficialScheduleQueryDao(
             .last()
             .let { RootRaidResponse(it) }
     }
+
 }

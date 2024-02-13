@@ -1,5 +1,6 @@
 package org.info.lostark.common.security
 
+import io.jsonwebtoken.JwtException
 import jakarta.servlet.FilterChain
 import jakarta.servlet.http.HttpServletRequest
 import jakarta.servlet.http.HttpServletResponse
@@ -37,9 +38,11 @@ class JwtAuthenticationFilter(
 
             filterChain.doFilter(request, response)
 
-        } catch (e: Exception) {
+        } catch (e: JwtException) {
             response.contentType = "application/json;charset=utf-8"
             response.sendError(HttpStatus.UNAUTHORIZED.value(), e.message)
+        } catch (e: Exception) {
+            throw e
         }
     }
 }

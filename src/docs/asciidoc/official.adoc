@@ -3,3 +3,20 @@
 == 오피셜 스케줄 요약 조회
 
 operation::official-summary-get[snippets='http-request,http-response']
+
+== 필드보스 지역 조회
+
+operation::official-field-boss-location-get[snippets='http-request,http-response']
+
+== 카테고리별 컨텐츠 조회
+카테고리
+
+
+* FIELD_BOSS
+* CHAOS_GATE
+* ADVENTURE_ISLAND
+* BEGINNING_ISLAND
+* ABYSS_DUNGEON
+* GUARDIAN_RAID
+
+operation::official-contents-get[snippets='http-request,http-response']
