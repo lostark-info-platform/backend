@@ -19,7 +19,9 @@ class CorsConfig : WebMvcConfigurer {
             HttpMethod.POST,
             HttpMethod.PUT,
             HttpMethod.PATCH,
-            HttpMethod.DELETE
+            HttpMethod.DELETE,
+            HttpMethod.OPTIONS,
+            HttpMethod.TRACE
         )
     }
 }
