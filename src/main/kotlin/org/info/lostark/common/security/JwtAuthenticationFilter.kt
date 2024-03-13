@@ -39,9 +39,11 @@ class JwtAuthenticationFilter(
             filterChain.doFilter(request, response)
 
         } catch (e: JwtException) {
+            logger.error(e)
             response.contentType = "application/json;charset=utf-8"
             response.sendError(HttpStatus.UNAUTHORIZED.value(), e.message)
         } catch (e: Exception) {
+            logger.error(e)
             throw e
         }
     }
