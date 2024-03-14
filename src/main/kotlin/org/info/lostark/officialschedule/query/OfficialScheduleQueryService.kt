@@ -112,11 +112,11 @@ class OfficialScheduleQueryService(
         )
     }
 
-    private fun createOfficialContentFromGuardian(rootRaidResponse: RootRaidResponse): OfficialContentSummaryResponse {
+    private fun createOfficialContentFromGuardian(rootRaidResponse: RootRaidResponse?): OfficialContentSummaryResponse {
         val nearestStartTime = rootRaidResponse
-            .raids
-            .map { it.startTime }
-            .findNearestFuture()
+            ?.raids
+            ?.map { it.startTime }
+            ?.findNearestFuture()
         return OfficialContentSummaryResponse(
             OtherContentsType.GUARDIAN_RAID.iconUrl,
             OtherContentsType.GUARDIAN_RAID.value,

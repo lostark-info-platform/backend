@@ -27,10 +27,10 @@ class OfficialScheduleQueryDao(
             .map { ChallengeAbyssDungeonResponse(it) }
     }
 
-    fun findSummaryGuardian(): RootRaidResponse {
+    fun findSummaryGuardian(): RootRaidResponse? {
         return rootRaidDaoSupport.findAll()
-            .last()
-            .let { RootRaidResponse(it) }
+            .lastOrNull()
+            ?.let { RootRaidResponse(it) }
     }
 
 }
