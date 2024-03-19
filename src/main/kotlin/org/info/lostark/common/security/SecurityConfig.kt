@@ -32,8 +32,7 @@ class SecurityConfig {
                 sessionManagement { sessionCreationPolicy = STATELESS }
                 securityMatcher("/api/**")
                 authorizeRequests {
-                    authorize("/api/auth/**", permitAll)
-                    authorize(anyRequest, authenticated)
+                    authorize(anyRequest, permitAll)
                 }
                 addFilterBefore<UsernamePasswordAuthenticationFilter>(
                     JwtAuthenticationFilter(
