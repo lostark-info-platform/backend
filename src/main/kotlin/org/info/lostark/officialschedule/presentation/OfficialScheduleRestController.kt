@@ -8,12 +8,14 @@ import org.info.lostark.officialschedule.query.OfficialScheduleQueryService
 import org.info.lostark.officialschedule.query.dto.OfficialContentSummaryResponse
 import org.info.lostark.officialschedule.query.dto.OfficialContentsDetailsQueryResponse
 import org.springframework.http.ResponseEntity
+import org.springframework.security.access.prepost.PreAuthorize
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api/official")
+@PreAuthorize("hasRole('ROLE_BASIC')")
 class OfficialScheduleRestController(
     private val officialScheduleQueryService: OfficialScheduleQueryService
 ) {
